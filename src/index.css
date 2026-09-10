@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gunmetal: #141C19;
+  --color-olive: #5C6B2E;
+  --color-gold: #A88B3F;
+  --color-bone: #FAF9F5;
+  --font-serif: 'Instrument Serif', serif;
+  --font-sans: 'General Sans', sans-serif;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/src/assets/Fonts/WEB/fonts/GeneralSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'General Sans';
+  src: url('/src/assets/Fonts/WEB/fonts/GeneralSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-serif: 'Cormorant', serif;
+  /* rest stays the same */
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #5C6B2E #141C19;
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141C19;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #5C6B2E;
+  /* border-radius: 8px; */
+  border: 2px solid #141C19;
+}
+
+/* ::-webkit-scrollbar-thumb:hover {
+  background-color: #A88B3F;
+} */

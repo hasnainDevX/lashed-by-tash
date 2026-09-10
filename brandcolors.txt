@@ -1,0 +1,11 @@
+LASHED BY TASH — DESIGN SYSTEM
+
+COLORS
+Gunmetal   #141C19   — dark sections, primary text, nav
+Olive      #5C6B2E   — core brand color, buttons, links
+Ecru Gold  #A88B3F   — CTA hover, accents (use sparingly)
+White      #FAF9F5   — light sections, max contrast
+
+FONTS
+Headline: Instrument Serif (Google Fonts) — use italics for emphasis words
+Body/UI:  General Sans (Fontshare)
