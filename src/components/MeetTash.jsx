@@ -6,7 +6,7 @@ import CircularText from "./CircularText";
 
 const MeetTash = () => {
   return (
-    <section className="w-full bg-bone px-6 py-6 md:px-12 md:py-20 relative ">
+    <section className="w-full bg-bone px-6 py-6 md:px-12 md:py-12 relative ">
       {/* Stacked headline */}
       <div className="mx-auto max-w-5xl">
         <h2 className="font-serif font-light leading-[1.05] text-gunmetal uppercase">

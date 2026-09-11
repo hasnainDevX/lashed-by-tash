@@ -5,10 +5,12 @@ import side1 from "../assets/image9.jpeg";
 import side2 from "../assets/image6.jpeg";
 import side3 from "../assets/image7.jpeg";
 import side4 from "../assets/image8.jpeg";
+import CircularText from "./CircularText";
 import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+
 
 const Hero = () => {
   const links = ["Home", "About", "Services", "Book"];
@@ -139,6 +141,8 @@ const Hero = () => {
           Book Now
         </a>
       </div>
+
+      <CircularText className="absolute md:bottom-0 bottom-40 right-4 z-10" />
     </section>
   );
 };
