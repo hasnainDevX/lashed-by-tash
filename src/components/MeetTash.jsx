@@ -6,7 +6,7 @@ import CircularText from "./CircularText";
 
 const MeetTash = () => {
   return (
-    <section className="w-full bg-bone px-6 py-20 md:px-12 md:py-28 relative ">
+    <section className="w-full bg-bone px-6 py-6 md:px-12 md:py-20 relative ">
       {/* Stacked headline */}
       <div className="mx-auto max-w-5xl">
         <h2 className="font-serif font-light leading-[1.05] text-gunmetal uppercase">
@@ -19,21 +19,21 @@ const MeetTash = () => {
 
       {/* Photo grid */}
       <div className="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
-        <div className="h-80 w-full overflow-hidden rounded-sm md:h-[420px]">
+        <div className="h-96 w-full overflow-hidden rounded-sm md:h-[420px]">
           <img
             src={photo1}
             alt="Tash at work"
-            className="h-full w-full object-cover transition-transform duration-500 ease-out hover:scale-110"
+            className="h-full w-full object-cover object-top transition-transform duration-500 ease-out hover:scale-110"
           />
         </div>
-        <div className="h-80 w-full overflow-hidden rounded-sm md:h-[420px]">
+        <div className="md:block hidden h-80 w-full overflow-hidden rounded-sm md:h-[420px]">
           <img
             src={photo2}
             alt="Tash, lash artist"
             className="h-full w-full object-cover transition-transform duration-500 ease-out hover:scale-110"
           />
         </div>
-        <div className="h-80 w-full overflow-hidden rounded-sm md:h-[420px]">
+        <div className="md:block hidden h-80 w-full overflow-hidden rounded-sm md:h-[420px]">
           <img
             src={photo3}
             alt="Lash artistry detail"
@@ -51,7 +51,7 @@ const MeetTash = () => {
         </p>
       </div>
       {/* cta  */}
-      <div className="flex justify-center md:bottom-24">
+      <div className="flex justify-center md:bottom-24 my-12">
         <a
           href="#book"
           className=" border border-gunmetal px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
@@ -59,7 +59,10 @@ const MeetTash = () => {
           Book Now
         </a>
       </div>
-      <CircularText className="absolute z-10 top-40 right-16 uppercase" color="#141C19" />
+      <CircularText
+        className="md:block hidden absolute z-10 top-40 right-16 uppercase"
+        color="#141C19"
+      />
     </section>
   );
 };

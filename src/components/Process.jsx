@@ -32,8 +32,8 @@ const Process = () => {
   return (
     <section className="relative w-full overflow-hidden bg-bone">
       <div className="grid grid-cols-1 md:grid-cols-2">
-        {/* Left column — ghost word + stacked steps */}
-        <div className="relative px-6 py-20 md:px-12 md:py-28">
+        {/* Left column — ghost word + steps + statement card, stretched full height */}
+        <div className="relative flex flex-col px-6 py-20 md:px-12 md:py-28">
           <span
             className="pointer-events-none absolute -left-4 top-8 select-none whitespace-nowrap font-serif text-[7rem] font-light uppercase leading-none text-gunmetal/5 md:text-[9rem]"
             aria-hidden="true"
@@ -61,9 +61,21 @@ const Process = () => {
               </div>
             ))}
           </div>
+
+          {/* Statement card — pinned to bottom, fills the leftover space */}
+          <div className="md:block hidden relative z-10 mt-auto max-w-md border-l-2 border-gold py-2 pl-6 pt-16">
+            <p className="font-serif text-xl italic leading-snug text-gunmetal md:text-2xl">
+              "No two sets are the same — every appointment starts with
+              actually looking at your eyes, not just picking a size off a
+              chart."
+            </p>
+            <p className="mt-4 font-sans text-xs uppercase tracking-[0.15em] text-gunmetal/50">
+              — Tash, Lashed by Tash
+            </p>
+          </div>
         </div>
 
-        {/* Right column — video instead of static photo */}
+        {/* Right column — video */}
         <div className="h-72 w-full md:h-auto">
           <video
             src={processVideo}

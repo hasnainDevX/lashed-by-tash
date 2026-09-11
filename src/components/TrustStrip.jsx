@@ -9,7 +9,7 @@ const stats = [
 
 const TrustStrip = () => {
   return (
-    <section className="w-full bg-gunmetal">
+    <section className="w-full bg-gunmetal mb-12">
       <div className="mx-auto grid max-w-6xl grid-cols-2 divide-y divide-bone/10 md:grid-cols-4 md:divide-x md:divide-y-0">
         {stats.map((stat) => (
           <div

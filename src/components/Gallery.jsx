@@ -13,13 +13,13 @@ const gallery = [
   { image: work3, span: false },
   { image: work4, span: false },
   { image: work5, span: true },
-  { image: work6, span: false },
+  { image: work6, span: false, hideOnMobile: true },
   { image: work7, span: false },
 ];
 
 const Gallery = () => {
   return (
-    <section className="w-full bg-bone px-6 py-20 md:px-12 md:py-28">
+    <section className="w-full bg-bone px-6 py-20 px-12">
       {/* Header */}
       <div className="mx-auto max-w-5xl">
         <h2 className="mt-3 font-serif text-5xl font-extralight uppercase text-gunmetal md:text-5xl">
@@ -35,8 +35,8 @@ const Gallery = () => {
         {gallery.map((item, i) => (
           <div
             key={i}
-            className={`overflow-hidden  ${
-              item.span ? "row-span-2" : "row-span-1"
+            className={`overflow-hidden ${item.span ? "row-span-2" : "row-span-1"} ${
+              item.hideOnMobile ? "hidden md:block" : ""
             }`}
           >
             <img
