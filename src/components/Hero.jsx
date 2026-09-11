@@ -112,7 +112,7 @@ const Hero = () => {
         </p>
       </div>
 
-     {/* Left photo pair — GSAP-driven drift, no React state */}
+     {/* Left photo pair — GSAP-driven drift*/}
       <div
         ref={leftRef}
         className="absolute left-2 top-[50%] z-10 hidden -translate-y-1/2 flex-col gap-4 md:left-10 md:flex"

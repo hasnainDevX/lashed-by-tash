@@ -1,6 +1,9 @@
+import Gallery from './components/Gallery'
 import Hero from './components/Hero'
 import MeetTash from './components/MeetTash'
+import Process from './components/Process'
 import Services from './components/Services'
+import Statement from './components/Statement'
 import TrustStrip from './components/TrustStrip'
 
 function App() {
@@ -9,7 +12,9 @@ function App() {
       <Hero/>
       <TrustStrip/>
       <MeetTash/>
+      <Gallery/>
       <Services/>
+      <Process/>
     </>
   )
 }

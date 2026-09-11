@@ -1,86 +1,82 @@
 import React from 'react'
+import classicImg from '../assets/image6.jpeg'
+import yyMixImg from '../assets/image7.jpeg'
+import yyFullImg from '../assets/image8.jpeg'
 
-const menu = [
+const services = [
   {
     name: 'Classic Full Set',
     price: '$90',
-    fills: [
-      { label: '2 week fill', price: '$55' },
-      { label: '3 week fill', price: '$65' },
-    ],
+    image: classicImg,
+    description:
+      'One premium extension per natural lash for elegant length and a soft, everyday finish.',
   },
   {
     name: 'YY / Classic Mix',
     price: '$95',
-    fills: [
-      { label: '2 week fill', price: '$60' },
-      { label: '3 week fill', price: '$70' },
-    ],
-    featured: true,
+    image: yyMixImg,
+    description:
+      'A textured blend of YY and classic fans for extra fullness without heavy volume.',
   },
   {
     name: 'YY Full Set',
     price: '$100',
-    fills: [
-      { label: '2 week fill', price: '$65' },
-      { label: '3 week fill', price: '$75' },
-    ],
+    image: yyFullImg,
+    description:
+      'Full YY lashes from root to tip for a fluffy, dramatic look that still feels light.',
   },
 ]
 
 const Services = () => {
   return (
     <section className="w-full bg-gunmetal px-6 py-20 md:px-12 md:py-28">
-      <div className="mx-auto max-w-5xl text-center">
-        <p className="font-sans text-xs uppercase tracking-[0.2em] text-gold">
-          Services and Pricing
-        </p>
-        <h2 className="mt-3 font-serif text-4xl font-light leading-tight text-bone md:text-6xl">
-          A lash menu, <span className="italic text-gold">made simple</span>
+      {/* Header */}
+      <div className="mx-auto max-w-2xl text-center">
+        <h2 className="font-serif text-4xl font-light text-bone md:text-5xl uppercase">
+          Our lash services
         </h2>
+        <p className="mt-4 font-sans text-sm leading-relaxed text-bone/60 md:text-base">
+          Every set starts with a quick consultation, so the result actually
+          suits your eye shape and how much upkeep you want.
+        </p>
+        <div className="mx-auto mt-6 h-px w-12 bg-gold" />
       </div>
 
-      <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
-        {menu.map((tier) => (
-          <div
-            key={tier.name}
-            className={`flex flex-col gap-6 border px-6 py-10 text-center ${
-              tier.featured
-                ? 'border-gold bg-olive/10'
-                : 'border-bone/15'
-            }`}
-          >
-            <div>
-              <h3 className="font-serif text-2xl text-bone">{tier.name}</h3>
-              <p className="mt-2 font-serif text-4xl font-light text-gold">
-                {tier.price}
-              </p>
+      {/* Cards */}
+      <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
+        {services.map((service) => (
+          <div key={service.name} className="flex flex-col">
+            <div className="h-64 w-full overflow-hidden rounded-md">
+              <img
+                src={service.image}
+                alt={service.name}
+                className="h-full w-full object-cover transition-transform duration-500 ease-out hover:scale-110"
+              />
             </div>
 
-            <div className="flex flex-col gap-2 border-t border-bone/15 pt-6">
-              {tier.fills.map((fill) => (
-                <div
-                  key={fill.label}
-                  className="flex items-center justify-between font-sans text-sm text-bone/80"
-                >
-                  <span>{fill.label}</span>
-                  <span>{fill.price}</span>
-                </div>
-              ))}
+            <div className="mt-4 flex items-baseline justify-between">
+              <h3 className="font-serif text-xl text-bone uppercase">{service.name}</h3>
+              <span className="font-sans text-sm text-bone/60">
+                From <span className="font-medium text-gold">{service.price}</span>
+              </span>
             </div>
-            <a
-              href="#book"
-              className="mt-auto border border-bone/40 px-5 py-2.5 font-sans text-xs uppercase tracking-[0.2em] text-bone transition-colors duration-300 hover:bg-bone hover:text-gunmetal"
-            >
-              Book this set
-            </a>
+
+            <p className="mt-2 font-sans text-sm leading-relaxed text-bone/50">
+              {service.description}
+            </p>
           </div>
         ))}
       </div>
 
-      <p className="mx-auto mt-8 max-w-md text-center font-sans text-xs text-bone/50">
-        Must have 40% or more lash retention to qualify as a fill.
-      </p>
+      {/* CTA */}
+      <div className="mx-auto mt-14 flex max-w-5xl justify-center">
+        <a
+          href="services"
+          className="bg-gold px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.15em] text-gunmetal transition-opacity duration-300 hover:opacity-80"
+        >
+          View full service menu
+        </a>
+      </div>
     </section>
   )
 }
