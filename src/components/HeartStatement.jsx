@@ -19,7 +19,7 @@ const quotes = [
     position: 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:bottom-40 md:left-12 md:top-[unset] md:translate-x-0 md:translate-y-0',
   },
   {
-    text: 'Award-nominated and trusted by 400+ clients across Steinbach, MB.',
+    text: "You killed it! Booked my future appointments too — thanks for making the service so comfortable and quick, you're a gem!",
     position: 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:bottom-16 md:right-12 md:left-[unset] md:top-[unset] md:translate-x-0 md:translate-y-0',
   },
   {
