@@ -19,7 +19,7 @@ const gallery = [
 
 const Gallery = () => {
   return (
-    <section className="w-full bg-bone px-6 py-12 md:px-12 md:py-24 relative mb-8">
+    <section className="w-full bg-bone px-6 py-12 md:px-12 md:py-24 relative">
       {/* Header */}
       <div className="mx-auto max-w-5xl">
         <h2 className="font-serif text-5xl font-extralight uppercase text-gunmetal md:text-5xl">
@@ -49,7 +49,7 @@ const Gallery = () => {
       </div>
 
       {/* CTA */}
-      <div className="mx-auto mt-12 flex max-w-5xl justify-center">
+      <div className="mx-auto my-12 flex max-w-5xl justify-center">
         <a
           href="https://instagram.com/lashedby._.tash"
           target="_blank"

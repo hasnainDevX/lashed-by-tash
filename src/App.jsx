@@ -1,6 +1,7 @@
 import FAQ from './components/FAQ'
 import FinalCta from './components/FinalCta'
 import Gallery from './components/Gallery'
+import HeartStatement from './components/HeartStatement'
 import Hero from './components/Hero'
 import MeetTash from './components/MeetTash'
 import Process from './components/Process'
@@ -19,6 +20,8 @@ function App() {
       <Process/>
       <FAQ/>
       <FinalCta/>
+      <HeartStatement/>
+      <Statement/>
     </>
   )
 }
