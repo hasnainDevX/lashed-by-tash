@@ -96,16 +96,16 @@ const HeartStatement = () => {
       >
         {/* Ghost heading — same treatment as "PROCESS", sized to bleed off the photo's edges */}
         <span
-          className="pointer-events-none absolute z-0 select-none whitespace-nowrap font-serif text-[6rem] font-light uppercase leading-none text-gold md:text-[12rem]"
+          className="pointer-events-none absolute z-0 select-none whitespace-nowrap font-serif text-[3rem] font-light uppercase leading-none text-gunmetal md:text-[12rem]"
           aria-hidden="true"
         >
-          Clients Love
+          Client Love
         </span>
 
         <img
           src={portrait}
           alt="Tash, lash artist"
-          className="relative z-10 h-[65vh] w-full max-w-2xl object-cover opacity-55"
+          className="relative z-10 h-[65vh] w-full max-w-2xl object-cover opacity-60"
         />
 
         {quotes.map((quote, i) => (
