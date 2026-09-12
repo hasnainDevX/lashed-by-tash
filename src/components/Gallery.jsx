@@ -19,10 +19,10 @@ const gallery = [
 
 const Gallery = () => {
   return (
-    <section className="w-full bg-bone px-6 py-20 px-12">
+    <section className="w-full bg-bone px-6 py-12 md:px-12 md:py-24 relative mb-8">
       {/* Header */}
       <div className="mx-auto max-w-5xl">
-        <h2 className="mt-3 font-serif text-5xl font-extralight uppercase text-gunmetal md:text-5xl">
+        <h2 className="font-serif text-5xl font-extralight uppercase text-gunmetal md:text-5xl">
           A glimpse <span className="italic">of the work</span>
         </h2>
         <p className="mt-4 max-w-md font-sans text-sm leading-relaxed text-gunmetal/60 md:text-base">

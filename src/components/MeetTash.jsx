@@ -8,7 +8,7 @@ const MeetTash = () => {
   return (
     <section className="w-full bg-bone px-6 py-6 md:px-12 md:py-12 relative ">
       {/* Stacked headline */}
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-5xl mt-12">
         <h2 className="font-serif font-light leading-[1.05] text-gunmetal uppercase">
           <span className="block text-4xl md:text-6xl">The Artist Behind</span>
           <span className="block text-4xl uppercase tracking-wide md:text-6xl">
@@ -51,7 +51,7 @@ const MeetTash = () => {
         </p>
       </div>
       {/* cta  */}
-      <div className="flex justify-center md:bottom-24 my-12">
+      <div className="flex justify-center md:bottom-24 my-10">
         <a
           href="#book"
           className=" border border-gunmetal px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
