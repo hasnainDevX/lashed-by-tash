@@ -36,13 +36,17 @@ const Process = () => {
         {/* Left column — ghost word + steps + statement card, stretched full height */}
         <div className="relative flex flex-col px-6 py-20 md:px-12 md:py-28">
           <span
-            className="pointer-events-none absolute left-12 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 -rotate-90 select-none whitespace-nowrap font-serif text-[7rem] font-light uppercase leading-none text-gunmetal/5 md:block md:text-[9rem]"
+            className="pointer-events-none absolute left-12 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 -rotate-90 select-none whitespace-nowrap font-serif text-[7rem] font-light uppercase leading-none  md:block md:text-[9rem] text-olive"
             aria-hidden="true"
           >
             Process
           </span>
 
-          <div className="relative z-10 flex flex-col gap-12 md:gap-24 md:pl-20">
+          <h2 className="my-12 block md:hidden font-serif text-5xl font-extralight uppercase text-gunmetal md:text-5xl">
+            Our <span className="italic">Process</span>
+          </h2>
+
+          <div className="relative z-10 flex flex-col gap-8 md:gap-24 md:pl-20">
             {steps.map((step, i) => (
               <div key={step.number} className="flex flex-col gap-3">
                 <div className="flex items-baseline gap-3">
@@ -85,7 +89,7 @@ const Process = () => {
         </div>
 
         {/* Right column — video */}
-        <div className="h-42 w-full md:h-auto">
+        <div className="h-full w-full md:h-auto">
           <video
             src={processVideo}
             autoPlay
