@@ -1,7 +1,7 @@
 import React from 'react'
 import ctaImage from '../assets/image11.jpg'
 
-const FinalCTA = () => {
+const FinalCta = () => {
   return (
     <section
       className="relative flex min-h-[70vh] w-full items-center justify-center overflow-hidden bg-fixed bg-cover bg-center px-6 text-center"
@@ -31,4 +31,4 @@ const FinalCTA = () => {
   )
 }
 
-export default FinalCTA
+export default FinalCta

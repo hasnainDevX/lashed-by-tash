@@ -1,5 +1,5 @@
 import FAQ from './components/FAQ'
-import FinalCTA from './components/FinalCta'
+import FinalCta from './components/FinalCta'
 import Gallery from './components/Gallery'
 import Hero from './components/Hero'
 import MeetTash from './components/MeetTash'
@@ -18,7 +18,7 @@ function App() {
       <Services/>
       <Process/>
       <FAQ/>
-      <FinalCTA/>
+      <FinalCta/>
     </>
   )
 }
