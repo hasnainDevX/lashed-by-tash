@@ -156,7 +156,7 @@ const Hero = () => {
         />
       </div>
 
-      <CircularText className="absolute bottom-24 right-4 z-10 md:bottom-0 md:top-auto" />
+      <CircularText className="absolute bottom-14 right-4 z-10 md:bottom-0 md:top-auto" />
     </section>
   );
 };
