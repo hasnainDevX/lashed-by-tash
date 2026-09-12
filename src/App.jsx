@@ -3,6 +3,7 @@ import FinalCta from './components/FinalCta'
 import Gallery from './components/Gallery'
 import HeartStatement from './components/HeartStatement'
 import Hero from './components/Hero'
+import Marquee from './components/Marquee'
 import MeetTash from './components/MeetTash'
 import Process from './components/Process'
 import Services from './components/Services'
@@ -13,7 +14,7 @@ function App() {
   return (
     <>
       <Hero/>
-      <TrustStrip/>
+      <Marquee/>
       <MeetTash/>
       <Gallery/>
       <Services/>

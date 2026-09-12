@@ -1,5 +1,5 @@
 import React from "react";
-import heroimage from "../assets/image4.jpeg";
+import heroVideo from "../assets/work2.mp4";
 import logo from "../assets/tlogo2.png";
 import side1 from "../assets/image9.jpeg";
 import side2 from "../assets/image6.jpeg";
@@ -48,10 +48,13 @@ const Hero = () => {
 
   return (
     <section ref={sectionRef} className="relative min-h-screen w-full overflow-hidden bg-gunmetal">
-      {/* Background photo */}
-      <img
-        src={heroimage}
-        alt="Lashed by Tash"
+      {/* Background video, replacing the static photo */}
+      <video
+        src={heroVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gunmetal/40" />
@@ -81,20 +84,21 @@ const Hero = () => {
         </button>
       </nav>
 
-      {/* Oversized wordmark */}
+      {/* Oversized wordmark — now one line */}
       <div className="relative z-10 flex flex-col items-center justify-center px-4 pt-16 text-center md:pt-20">
         <h1
-          className="font-serif font-light uppercase leading-none text-transparent"
+          className="flex items-baseline gap-3 whitespace-nowrap font-serif font-light uppercase leading-none text-transparent"
           style={{
             WebkitTextStroke: "1px #FAF9F5",
-            fontSize: "clamp(3.5rem, 16vw, 11rem)",
+            fontSize: "clamp(2rem, 9vw, 6rem)",
           }}
         >
-          Lashed
+          <span>Lashed</span>
+          <span className="font-serif italic normal-case text-bone" style={{ WebkitTextStroke: "0px", fontSize: "0.6em" }}>
+            by
+          </span>
+          <span>Tash</span>
         </h1>
-        <p className="mt-3 font-serif text-2xl italic text-bone md:text-3xl">
-          by Tash
-        </p>
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-bone my-3">
           Perfect lashes, without the daily effort
         </p>

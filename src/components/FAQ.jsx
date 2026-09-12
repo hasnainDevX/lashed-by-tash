@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "How long does a full set take?",
     answer:
-      "A classic full set typically takes around 90 minutes to 2 hours. YY and volume sets can run a bit longer since they involve more intricate fan work.",
+      "A full set takes about an hour. YY and volume sets can run slightly longer depending on the look.",
   },
   {
     question: "What happens at my first appointment?",

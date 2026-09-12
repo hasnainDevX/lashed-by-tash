@@ -1,5 +1,5 @@
-import React from 'react'
-import ctaImage from '../assets/image11.jpg'
+import React from "react";
+import ctaImage from "../assets/image11.jpg";
 
 const FinalCta = () => {
   return (
@@ -17,18 +17,21 @@ const FinalCta = () => {
           LASHES YOU DON'T HAVE TO <span className="italic">think about</span>
         </h2>
         <p className="max-w-md font-sans text-sm leading-relaxed text-bone/70 md:text-base">
-          Book online in under a minute, or send a message first if you'd
-          rather chat about your first set.
+          Book online in under a minute, or send a message first if you'd rather
+          chat about your first set.
         </p>
-        <a
-          href="#book"
-          className="mt-2 bg-gold px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.15em] text-gunmetal transition-opacity duration-300 hover:opacity-80"
-        >
-          Book your appointment →
-        </a>
+        {/* CTA */}
+        <div className="mx-auto flex max-w-5xl justify-center ">
+          <a
+            href="services"
+            className="border border-bone/40 bg-olive px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:bg-white hover:text-olive"
+          >
+            Book Your Appointment
+          </a>
+        </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default FinalCta
+export default FinalCta;

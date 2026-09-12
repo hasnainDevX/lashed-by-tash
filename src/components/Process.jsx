@@ -76,6 +76,16 @@ const Process = () => {
             ))}
           </div>
 
+          {/* cta  */}
+          <div className="flex justify-center my-16 hover:border hover:border-gunmetal transition-colors duration-300">
+            <a
+              href="/services"
+              className=" border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
+            >
+              Explore Services
+            </a>
+          </div>
+
           {/* Statement card — pinned to bottom, fills the leftover space */}
           <div className="md:block hidden relative z-10 max-w-md py-2 md:mt-40 md:ml-10 ">
             <p className="font-serif text-xl italic leading-snug text-gunmetal md:text-2xl border-l-2 pl-6 border-gold">

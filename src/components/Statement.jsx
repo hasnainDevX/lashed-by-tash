@@ -3,11 +3,11 @@ import portrait from '../assets/image10.jpeg'
 
 const Statement = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-gunmetal px-6 py-20 md:px-12 md:py-28">
+    <section className="relative w-full overflow-hidden px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto flex max-w-5xl flex-col gap-10 md:flex-row md:items-center md:gap-16">
         {/* Vertical ghost word — desktop only */}
         <span
-          className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 -rotate-90 whitespace-nowrap font-serif text-[10rem] font-light uppercase tracking-widest text-bone/5 md:block"
+          className="pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 -rotate-90 whitespace-nowrap font-serif text-[10rem] font-light uppercase tracking-widest text-gunmetal md:block"
           aria-hidden="true"
         >
           Tash
@@ -24,7 +24,7 @@ const Statement = () => {
 
         {/* Text content */}
         <div className="relative z-10 flex flex-col gap-8">
-          <div className="font-serif text-2xl font-light italic leading-snug text-gold md:text-3xl">
+          <div className="font-serif text-2xl font-light italic leading-snug text-gunmetal md:text-3xl">
             Patient with every client.
             <br />
             Precise in every set.
@@ -32,7 +32,7 @@ const Statement = () => {
             Obsessed with the small details.
           </div>
 
-          <div className="flex flex-col gap-4 font-sans text-sm leading-relaxed text-bone/70 md:text-base">
+          <div className="flex flex-col gap-4 font-sans text-sm leading-relaxed text-gunmetal md:text-base">
             <p>
               I started Lashed by Tash to give people one less thing to think
               about every morning — lashes that look done without ever

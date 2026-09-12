@@ -1,38 +1,67 @@
-import React from 'react'
-import classicImg from '../assets/image6.jpeg'
-import yyMixImg from '../assets/image7.jpeg'
-import yyFullImg from '../assets/image8.jpeg'
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import classicImg from "../assets/image6.jpeg";
+import yyMixImg from "../assets/image7.jpeg";
+import yyFullImg from "../assets/image8.jpeg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    name: 'Classic Full Set',
-    price: '$90',
+    name: "Classic Full Set",
+    price: "$90",
     image: classicImg,
     description:
-      'One premium extension per natural lash for elegant length and a soft, everyday finish.',
+      "One premium extension per natural lash for elegant length and a soft, everyday finish.",
   },
   {
-    name: 'YY / Classic Mix',
-    price: '$95',
+    name: "YY / Classic Mix",
+    price: "$95",
     image: yyMixImg,
     description:
-      'A textured blend of YY and classic fans for extra fullness without heavy volume.',
+      "A textured blend of YY and classic fans for extra fullness without heavy volume.",
+    featured: true,
   },
   {
-    name: 'YY Full Set',
-    price: '$100',
+    name: "YY Full Set",
+    price: "$100",
     image: yyFullImg,
     description:
-      'Full YY lashes from root to tip for a fluffy, dramatic look that still feels light.',
+      "Full YY lashes from root to tip for a fluffy, dramatic look that still feels light.",
   },
-]
+];
 
 const Services = () => {
+  const sectionRef = useRef(null);
+  const cardRefs = useRef([]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(cardRefs.current, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 75%",
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="w-full bg-gunmetal px-6 py-20 md:px-12 md:py-28">
+    <section
+      ref={sectionRef}
+      className="w-full bg-gunmetal px-6 py-16 md:px-12 md:py-28"
+    >
       {/* Header */}
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="font-serif text-4xl font-light text-bone md:text-5xl uppercase">
+        <h2 className="font-serif text-4xl font-light uppercase text-bone md:text-5xl">
           Our lash services
         </h2>
         <p className="mt-4 font-sans text-sm leading-relaxed text-bone/60 md:text-base">
@@ -43,21 +72,38 @@ const Services = () => {
       </div>
 
       {/* Cards */}
-      <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
-        {services.map((service) => (
-          <div key={service.name} className="flex flex-col">
-            <div className="h-64 w-full overflow-hidden rounded-md">
+      <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-6 md:mt-14 md:grid-cols-3 md:gap-8">
+        {services.map((service, i) => (
+          <div
+            key={service.name}
+            ref={(el) => (cardRefs.current[i] = el)}
+            className={`group relative flex flex-col overflow-hidden rounded-lg border p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
+              service.featured
+                ? "border-gold bg-olive/10"
+                : "border-bone/10 bg-bone/[0.03]"
+            }`}
+          >
+            {service.featured && (
+              <span className="absolute right-4 top-4 z-10 bg-gold px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.15em] text-gunmetal">
+                Most Popular
+              </span>
+            )}
+
+            <div className="h-52 w-full overflow-hidden rounded-md md:h-64">
               <img
                 src={service.image}
                 alt={service.name}
-                className="h-full w-full object-cover transition-transform duration-500 ease-out hover:scale-110"
+                className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
               />
             </div>
 
             <div className="mt-4 flex items-baseline justify-between">
-              <h3 className="font-serif text-xl text-bone uppercase">{service.name}</h3>
+              <h3 className="font-serif text-xl uppercase text-bone">
+                {service.name}
+              </h3>
               <span className="font-sans text-sm text-bone/60">
-                From <span className="font-medium text-gold">{service.price}</span>
+                From{" "}
+                <span className="font-medium text-gold">{service.price}</span>
               </span>
             </div>
 
@@ -69,16 +115,17 @@ const Services = () => {
       </div>
 
       {/* CTA */}
-      <div className="mx-auto mt-14 flex max-w-5xl justify-center">
+      {/* CTA */}
+      <div className="mx-auto mt-10 flex max-w-5xl justify-center md:mt-14">
         <a
           href="services"
-          className="bg-gold px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.15em] text-gunmetal transition-opacity duration-300 hover:opacity-80"
+          className="border border-bone/40 bg-olive px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:bg-white hover:text-olive"
         >
           View full service menu
         </a>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;
