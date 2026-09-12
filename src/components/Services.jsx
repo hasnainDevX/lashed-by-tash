@@ -36,24 +36,6 @@ const Services = () => {
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(cardRefs.current, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-        },
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <section
       ref={sectionRef}

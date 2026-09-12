@@ -11,7 +11,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-
 const Hero = () => {
   const links = ["Home", "About", "Services", "Book"];
   const [offset, setOffset] = useState(0);
@@ -23,32 +22,35 @@ const Hero = () => {
     const ctx = gsap.context(() => {
       gsap.to(leftRef.current, {
         x: -50,
-        ease: 'none',
+        ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1, // 1s lag smooths out scroll jitter instead of tracking scrollY 1:1
-        },
-      })
-      gsap.to(rightRef.current, {
-        x: 50,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top top',
-          end: 'bottom top',
+          start: "top top",
+          end: "bottom top",
           scrub: 1,
         },
-      })
-    }, sectionRef)
+      });
+      gsap.to(rightRef.current, {
+        x: 50,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+    }, sectionRef);
 
-    return () => ctx.revert() // cleans up ScrollTrigger instances on unmount, prevents duplicate triggers on hot reload
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section ref={sectionRef} className="relative min-h-screen w-full overflow-hidden bg-gunmetal">
-      {/* Background video, replacing the static photo */}
+    <section
+      ref={sectionRef}
+      className="relative flex min-h-screen w-full flex-col overflow-hidden bg-gunmetal"
+    >
+      {/* Background video */}
       <video
         src={heroVideo}
         autoPlay
@@ -84,8 +86,8 @@ const Hero = () => {
         </button>
       </nav>
 
-      {/* Oversized wordmark — now one line */}
-      <div className="relative z-10 flex flex-col items-center justify-center px-4 pt-16 text-center md:pt-20">
+      {/* Wordmark — now flex-1, vertically centered in whatever space remains between nav and bottom content */}
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 text-center">
         <h1
           className="flex items-baseline gap-3 whitespace-nowrap font-serif font-light uppercase leading-none text-transparent"
           style={{
@@ -94,7 +96,10 @@ const Hero = () => {
           }}
         >
           <span>Lashed</span>
-          <span className="font-serif italic normal-case text-bone" style={{ WebkitTextStroke: "0px", fontSize: "0.6em" }}>
+          <span
+            className="font-serif italic normal-case text-bone"
+            style={{ WebkitTextStroke: "0px", fontSize: "0.6em" }}
+          >
             by
           </span>
           <span>Tash</span>
@@ -102,29 +107,41 @@ const Hero = () => {
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-bone my-3">
           Perfect lashes, without the daily effort
         </p>
+        {/* cta  */}
+        <div className="z-10 flex justify-center my-4">
+          <a
+            href="#book"
+            className=" border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
+          >
+            Book Now
+          </a>
+        </div>
       </div>
 
       {/* Side taglines — desktop */}
-      <div className="absolute inset-x-0 bottom-10 z-10 hidden items-center justify-between px-12 md:flex">
+      <div className="relative z-10 hidden items-center justify-between px-12 pb-10 md:flex">
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-bone">
           400+ clients trust her
         </p>
       </div>
 
       {/* Same taglines — mobile, stacked */}
-      <div className="absolute inset-x-0 bottom-6 z-10 flex justify-center md:hidden">
+      <div className="relative z-10 flex justify-center pb-6 md:hidden">
         <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-bone">
           Award-nominated lash artistry in Steinbach, MB
         </p>
       </div>
 
-     {/* Left photo pair — GSAP-driven drift*/}
+      {/* Left photo pair — GSAP-driven drift*/}
       <div
         ref={leftRef}
         className="absolute left-2 top-[50%] z-10 hidden -translate-y-1/2 flex-col gap-4 md:left-10 md:flex"
       >
-        <img src={side1} alt="" className="h-24 w-24 object-cover shadow-lg md:h-28 md:w-28" />
-        {/* <img src={side2} alt="" className="h-24 w-24 object-cover shadow-lg md:h-28 md:w-28" /> */}
+        <img
+          src={side1}
+          alt=""
+          className="h-24 w-24 object-cover shadow-lg md:h-28 md:w-28"
+        />
       </div>
 
       {/* Right photo pair — GSAP-driven drift, opposite direction */}
@@ -132,21 +149,14 @@ const Hero = () => {
         ref={rightRef}
         className="absolute right-2 top-[50%] z-10 hidden -translate-y-1/2 flex-col gap-4 md:right-10 md:flex"
       >
-        <img src={side3} alt="" className="h-24 w-24 object-cover shadow-lg md:h-28 md:w-28" />
-        {/* <img src={side4} alt="" className="h-24 w-24 object-cover shadow-lg md:h-28 md:w-28" /> */}
+        <img
+          src={side3}
+          alt=""
+          className="h-24 w-24 object-cover shadow-lg md:h-28 md:w-28"
+        />
       </div>
 
-      {/* cta  */}
-      <div className="absolute inset-x-0 z-10 flex justify-center md:bottom-24">
-        <a
-          href="#book"
-          className=" border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
-        >
-          Book Now
-        </a>
-      </div>
-
-      <CircularText className="absolute md:bottom-0 bottom-40 right-4 z-10" />
+      <CircularText className="absolute bottom-24 right-4 z-10 md:bottom-0 md:top-auto" />
     </section>
   );
 };
