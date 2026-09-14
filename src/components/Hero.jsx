@@ -1,14 +1,12 @@
-import React from "react";
-import heroVideo from "../assets/work2.mp4";
-import logo from "../assets/tlogo2.png";
-import side1 from "../assets/image9.jpeg";
-import side2 from "../assets/image6.jpeg";
-import side3 from "../assets/image7.jpeg";
-import side4 from "../assets/image8.jpeg";
-import CircularText from "./CircularText";
-import { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef, useState } from "react";
+import side3 from "../assets/image7.jpeg";
+import side1 from "../assets/image9.jpeg";
+import logo from "../assets/tlogo2.png";
+import heroVideo from "../assets/work2.mp4";
+import CircularText from "./CircularText";
+import MobileNav from "./MobileNav";
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
@@ -81,13 +79,11 @@ const Hero = () => {
           ))}
         </div>
 
-        <button className="font-sans text-xs uppercase tracking-[0.2em] text-bone md:hidden">
-          Menu
-        </button>
+        <MobileNav />
       </nav>
 
       {/* Wordmark — now flex-1, vertically centered in whatever space remains between nav and bottom content */}
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 text-center">
+      <div className="relative z-2 flex flex-1 flex-col items-center justify-center px-4 text-center">
         <h1
           className="flex items-baseline gap-3 whitespace-nowrap font-serif font-light uppercase leading-none text-transparent"
           style={{
@@ -108,7 +104,7 @@ const Hero = () => {
           Perfect lashes, without the daily effort
         </p>
         {/* cta  */}
-        <div className="z-10 flex justify-center my-4">
+        <div className="z-2 flex justify-center my-4">
           <a
             href="#book"
             className=" border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
@@ -119,14 +115,14 @@ const Hero = () => {
       </div>
 
       {/* Side taglines — desktop */}
-      <div className="relative z-10 hidden items-center justify-between px-12 pb-10 md:flex">
+      <div className="relative z-2 hidden items-center justify-between px-12 pb-10 md:flex">
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-bone">
           400+ clients trust her
         </p>
       </div>
 
       {/* Same taglines — mobile, stacked */}
-      <div className="relative z-10 flex justify-center pb-6 md:hidden">
+      <div className="relative z-2 flex justify-center pb-6 md:hidden">
         <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-bone">
           Award-nominated lash artistry in Steinbach, MB
         </p>
@@ -135,7 +131,7 @@ const Hero = () => {
       {/* Left photo pair — GSAP-driven drift*/}
       <div
         ref={leftRef}
-        className="absolute left-2 top-[50%] z-10 hidden -translate-y-1/2 flex-col gap-4 md:left-10 md:flex"
+        className="absolute left-2 top-[50%] z-2 hidden -translate-y-1/2 flex-col gap-4 md:left-10 md:flex"
       >
         <img
           src={side1}
@@ -147,7 +143,7 @@ const Hero = () => {
       {/* Right photo pair — GSAP-driven drift, opposite direction */}
       <div
         ref={rightRef}
-        className="absolute right-2 top-[50%] z-10 hidden -translate-y-1/2 flex-col gap-4 md:right-10 md:flex"
+        className="absolute right-2 top-[50%] z-2 hidden -translate-y-1/2 flex-col gap-4 md:right-10 md:flex"
       >
         <img
           src={side3}
@@ -156,7 +152,7 @@ const Hero = () => {
         />
       </div>
 
-      <CircularText className="absolute bottom-14 right-4 z-10 md:bottom-0 md:top-auto" />
+      <CircularText className="absolute bottom-14 right-4 z-2 md:bottom-0 md:top-auto" />
     </section>
   );
 };
