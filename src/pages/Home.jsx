@@ -6,7 +6,7 @@ import Services from '../components/Services';
 import Gallery from '../components/Gallery';
 import Process from '../components/Process';
 import FAQ from '../components/FAQ';
-import FinalCTA from '../components/FinalCTA';
+import FinalCTA from '../components/FinalCta';
 
 export default function Home() {
   return (
