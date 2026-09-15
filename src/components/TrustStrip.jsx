@@ -9,17 +9,17 @@ const stats = [
 
 const TrustStrip = () => {
   return (
-    <section className="w-full bg-gunmetal">
+    <section className="w-full">
       <div className="mx-auto grid max-w-6xl grid-cols-2 divide-y divide-bone/10 md:grid-cols-4 md:divide-x md:divide-y-0">
         {stats.map((stat) => (
           <div
             key={stat.label}
             className="flex flex-col items-center justify-center gap-1 px-6 py-10 text-center"
           >
-            <span className="font-serif text-3xl font-italic text-white md:text-4xl">
+            <span className="font-serif text-3xl font-italic text-gunmetal md:text-4xl">
               {stat.value}
             </span>
-            <span className="font-sans text-xs uppercase tracking-[0.15em] text-bone/70">
+            <span className="font-sans text-xs uppercase tracking-[0.15em] text-olive">
               {stat.label}
             </span>
           </div>

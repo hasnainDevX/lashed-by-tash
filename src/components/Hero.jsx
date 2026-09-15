@@ -1,6 +1,7 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import side3 from "../assets/image7.jpeg";
 import side1 from "../assets/image9.jpeg";
 import logo from "../assets/tlogo2.png";
@@ -9,8 +10,14 @@ import CircularText from "./CircularText";
 import MobileNav from "./MobileNav";
 gsap.registerPlugin(ScrollTrigger);
 
+const navLinks = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Services", to: "/services" },
+  { label: "Book", to: "/#book" },
+];
+
 const Hero = () => {
-  const links = ["Home", "About", "Services", "Book"];
   const [offset, setOffset] = useState(0);
   const sectionRef = useRef(null);
   const leftRef = useRef(null);
@@ -61,21 +68,23 @@ const Hero = () => {
 
       {/* Nav */}
       <nav className="relative z-10 flex items-center justify-between px-6 py-6 md:px-12 md:py-8">
-        <img
-          src={logo}
-          alt="Lashed by Tash"
-          className="h-12 w-auto scale-200"
-        />
+        <Link to="/">
+          <img
+            src={logo}
+            alt="Lashed by Tash"
+            className="h-12 w-auto scale-200"
+          />
+        </Link>
 
         <div className="hidden gap-8 md:flex">
-          {links.map((link) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              to={link.to}
               className="font-sans text-sm uppercase tracking-[0.2em] text-bone hover:underline underline-offset-8"
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           ))}
         </div>
 
@@ -105,12 +114,12 @@ const Hero = () => {
         </p>
         {/* cta  */}
         <div className="z-2 flex justify-center my-4">
-          <a
-            href="#book"
+          <Link
+            to="/#book"
             className=" border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
           >
             Book Now
-          </a>
+          </Link>
         </div>
       </div>
 

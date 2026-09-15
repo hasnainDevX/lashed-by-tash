@@ -50,10 +50,6 @@ html {
   border: 2px solid #141C19;
 }
 
-/* ::-webkit-scrollbar-thumb:hover {
-  background-color: #A88B3F;
-} */
-
 @keyframes marquee {
   from {
     transform: translateX(0);

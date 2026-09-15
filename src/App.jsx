@@ -1,30 +1,16 @@
-import FAQ from './components/FAQ'
-import FinalCta from './components/FinalCta'
-import Gallery from './components/Gallery'
-import HeartStatement from './components/HeartStatement'
-import Hero from './components/Hero'
-import Marquee from './components/Marquee'
-import MeetTash from './components/MeetTash'
-import Process from './components/Process'
-import Services from './components/Services'
-import Statement from './components/Statement'
-import TrustStrip from './components/TrustStrip'
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import ServicesPage from './pages/ServicesPage';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   return (
-    <>
-      <Hero/>
-      <Marquee/>
-      <MeetTash/>
-      <Gallery/>
-      <Services/>
-      <Process/>
-      <FAQ/>
-      <FinalCta/>
-      <HeartStatement/>
-      <Statement/>
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/services" element={<ServicesPage />} />
+      <Route path="/about" element={<AboutPage />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;

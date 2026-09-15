@@ -1,34 +1,34 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import classicImg from "../assets/image6.jpeg";
-import yyMixImg from "../assets/image7.jpeg";
-import yyFullImg from "../assets/image8.jpeg";
+import wetSetImg from "../assets/image6.jpeg";
+import hybridImg from "../assets/image7.jpeg";
+import volumeImg from "../assets/image8.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    name: "Classic Full Set",
-    price: "$90",
-    image: classicImg,
+    name: "Wet Set",
+    price: "$100",
+    image: wetSetImg,
     description:
-      "One premium extension per natural lash for elegant length and a soft, everyday finish.",
+      "A soft, low-maintenance set built for a natural everyday finish — barely-there weight, full commitment to the effortless look.",
   },
   {
-    name: "YY / Classic Mix",
-    price: "$95",
-    image: yyMixImg,
+    name: "Hybrid Full Set",
+    price: "$110",
+    image: hybridImg,
     description:
-      "A textured blend of YY and classic fans for extra fullness without heavy volume.",
+      "A textured mix of classic and volume fans for added depth and dimension, without going full volume.",
     featured: true,
   },
   {
-    name: "YY Full Set",
-    price: "$100",
-    image: yyFullImg,
+    name: "Volume Full Set",
+    price: "$115",
+    image: volumeImg,
     description:
-      "Full YY lashes from root to tip for a fluffy, dramatic look that still feels light.",
+      "Handmade volume fans built lash-by-lash for maximum density and a bold, dramatic finish that still feels weightless.",
   },
 ];
 
@@ -96,7 +96,6 @@ const Services = () => {
         ))}
       </div>
 
-      {/* CTA */}
       {/* CTA */}
       <div className="mx-auto mt-10 flex max-w-5xl justify-center md:mt-14">
         <a
