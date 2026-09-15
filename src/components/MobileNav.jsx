@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 import logo from "../assets/tlogo2.png";
 
 const links = [
-  { name: "Home", number: "01" },
-  { name: "About", number: "02" },
-  { name: "Services", number: "03" },
-  { name: "Book", number: "04" },
+  { name: "Home", number: "01", to: "/" },
+  { name: "About", number: "02", to: "/about" },
+  { name: "Services", number: "03", to: "/services" },
+  { name: "Book", number: "04", to: "/book" },
 ];
 
 const MobileNav = () => {
@@ -88,10 +89,10 @@ const MobileNav = () => {
 
         <nav className="relative z-10 flex flex-1 flex-col justify-center gap-1 px-8 py-6">
           {links.map((link, i) => (
-            <a
+            <Link
               key={link.name}
               ref={(el) => (linkRefs.current[i] = el)}
-              href={`#${link.name.toLowerCase()}`}
+              to={link.to}
               onClick={() => setIsOpen(false)}
               className="group flex items-baseline gap-4 border-b border-bone/10 py-3"
             >
@@ -99,7 +100,7 @@ const MobileNav = () => {
               <span className="font-serif text-3xl italic text-bone transition-colors duration-300 group-hover:text-gold">
                 {link.name}
               </span>
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -107,13 +108,13 @@ const MobileNav = () => {
           <p className="text-center font-serif text-sm italic text-bone/60">
             Perfect lashes, without the daily effort
           </p>
-          <a
-            href="#book"
+          <Link
+            to="/book"
             onClick={() => setIsOpen(false)}
             className="border border-bone bg-olive px-8 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-bone hover:text-olive"
           >
             Book Now
-          </a>
+          </Link>
 
           <div className="flex items-center gap-4 pt-1">
             <a
