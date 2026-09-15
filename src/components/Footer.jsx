@@ -1,5 +1,6 @@
 import { ArrowUpRight, Inspect } from "lucide-react";
 import logo from "../assets/tlogo.png";
+import lashesIcon from "../assets/lashes.png";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -31,12 +32,8 @@ const Footer = () => {
         <div className="grid gap-12 lg:grid-cols-[1fr_0.7fr_0.8fr_1.15fr] lg:gap-10">
           {/* Brand */}
           <div>
-            <a href="/home" aria-label="Lashed by Tash home">
-              <img
-                src={logo}
-                alt="Lashed by Tash"
-                className="h-auto w-64"
-              />
+            <a href="/home" aria-label="Lashed by Tash home" className="flex justify-center md:justify-start">
+              <img src={logo} alt="Lashed by Tash" className="h-auto w-64" />
             </a>
 
             <p className="mt-5 max-w-xs font-sans text-sm leading-6 text-gunmetal/60">
@@ -140,7 +137,18 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-3 border-t border-olive/15 pt-6 font-sans text-[10px] uppercase tracking-[0.12em] text-gunmetal/45 sm:flex-row sm:items-center sm:justify-between">
+        <div
+          aria-hidden="true"
+          className="h-20 w-full opacity-40 mt-12"
+          style={{
+            backgroundImage: `url(${lashesIcon})`,
+            backgroundRepeat: "repeat-x",
+            backgroundSize: "auto 100%",
+            backgroundPosition: "left center",
+          }}
+        />
+
+        <div className="flex flex-col gap-3  border-olive/15 pt-6 font-sans text-[10px] uppercase tracking-[0.12em] text-gunmetal/45 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Lashed by Tash</p>
           <p>Certified Lash Artist · Steinbach, MB</p>
           <a href="#policies" className="hover:text-olive">

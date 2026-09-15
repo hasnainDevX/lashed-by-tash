@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import photoMain from "../assets/image2.jpeg";
+import lashes from "../assets/lashes.png";
 import photoSecondary from "../assets/image3.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -64,8 +65,10 @@ const AboutIntro = () => {
           <DotCluster className="absolute -left-4 -top-8 md:-left-10" />
 
           <h2 className="font-serif text-4xl font-light leading-tight tracking-wide text-gunmetal md:text-5xl">
-            Hi, I'm <span className="italic text-olive">Tash</span>
+            Hi, I'm <span className="text-olive font-semibold">Tash</span>
           </h2>
+
+          <img src={lashes} alt="Lash extensions" className="absolute z-2 left-0 md:-left-12 -top-24 opacity-75 w-32 -rotate-12" />
 
           <div className="mt-7 max-w-md space-y-5 font-sans text-sm leading-relaxed text-gunmetal/70 md:text-base">
             <p>
@@ -88,11 +91,11 @@ const AboutIntro = () => {
               <div key={stat.label}>
                 <p
                   ref={(el) => (numberRefs.current[i] = el)}
-                  className="font-serif text-4xl font-light text-gunmetal"
+                  className="font-serif text-5xl font-light text-gunmetal"
                 >
                   0{stat.suffix}
                 </p>
-                <p className="mt-1 font-sans text-xs uppercase tracking-wide text-gunmetal/45">
+                <p className="mt-2 font-sans text-sm uppercase tracking-wide text-gunmetal/45">
                   {stat.label}
                 </p>
               </div>
