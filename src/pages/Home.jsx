@@ -7,6 +7,8 @@ import Gallery from '../components/Gallery';
 import Process from '../components/Process';
 import FAQ from '../components/FAQ';
 import FinalCTA from '../components/FinalCta';
+import InstagramFeed from '../components/InstagramFeed';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
       <Process />
       <FAQ />
       <FinalCTA />
+      <InstagramFeed/>
+      <Footer/>
     </>
   );
 }

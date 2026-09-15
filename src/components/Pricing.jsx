@@ -1,4 +1,7 @@
 import { Heart } from 'lucide-react';
+import wetSetImg from '../assets/image6.jpeg';
+import hybridImg from '../assets/image7.jpeg';
+import volumeImg from '../assets/image8.jpeg';
 
 const TIERS = [
   {
@@ -15,7 +18,7 @@ const TIERS = [
       'Custom length & curl mapping',
       'Aftercare guide included',
     ],
-    image: '/src/assets/image6.jpeg',
+    image: wetSetImg,
   },
   {
     name: 'Hybrid Full Set',
@@ -31,7 +34,7 @@ const TIERS = [
       'Custom length & curl mapping',
       'Aftercare guide included',
     ],
-    image: '/src/assets/image7.jpeg',
+    image: hybridImg,
     popular: true,
   },
   {
@@ -48,7 +51,7 @@ const TIERS = [
       'Custom length & curl mapping',
       'Aftercare guide included',
     ],
-    image: '/src/assets/image8.jpeg',
+    image: volumeImg,
   },
 ];
 

@@ -6,6 +6,7 @@ import HeartStatement from '../components/HeartStatement'
 import Statement from '../components/Statement'
 import MeetTash from '../components/MeetTash'
 import AboutIntro from '../components/AboutIntro'
+import Footer from '../components/Footer'
 
 const Aboutpage = () => {
   return (
@@ -16,6 +17,7 @@ const Aboutpage = () => {
         <AboutIntro/>
         <HeartStatement/>
         <Statement/>
+        <Footer/>
     </div>
   )
 }
