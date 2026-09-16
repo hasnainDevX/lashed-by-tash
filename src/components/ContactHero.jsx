@@ -22,7 +22,7 @@ const ContactHero = () => {
       />
       <div className="absolute inset-0 bg-gunmetal/70" />
 
-      <nav className="relative z-10 flex items-center justify-between px-6 py-6 md:px-12 md:py-8">
+      <nav className="relative z-2 flex items-center justify-between px-6 py-6 md:px-12 md:py-8">
         <Link to="/" aria-label="Lashed by Tash home">
           <img
             src={logo}
@@ -46,7 +46,7 @@ const ContactHero = () => {
         <MobileNav />
       </nav>
 
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 text-center">
+      <div className="relative z-2 flex flex-1 flex-col items-center justify-center px-4 text-center">
         <span className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-gold">
           Get in Touch
         </span>
@@ -75,7 +75,7 @@ const ContactHero = () => {
           know
         </p>
 
-        <div className="relative z-10 my-6 flex justify-center">
+        <div className="relative z-2 my-6 flex justify-center">
           <a
             href="#booking"
             className="border border-white bg-olive px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-white hover:text-olive"
@@ -85,7 +85,7 @@ const ContactHero = () => {
         </div>
       </div>
 
-      <CircularText className="absolute bottom-14 right-4 z-10 md:bottom-0 md:top-auto" />
+      <CircularText className="absolute bottom-14 right-4 z-2 md:bottom-0 md:top-auto" />
     </section>
   );
 };
