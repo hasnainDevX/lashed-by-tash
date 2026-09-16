@@ -70,15 +70,15 @@ const BookHero = () => {
           <span>Lashed</span>
         </h1>
         <p className="mx-auto mt-4 max-w-md font-sans text-xs uppercase tracking-[0.2em] text-bone/80">
-          Book an appointment or send a quick message below
+          Book an appointment now to avail your spot
         </p>
 
         <div className="z-2 flex justify-center my-6">
           <Link
-            to="#booking"
+            to="/contact"
             className="border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
           >
-            Book Now
+            Take me to Booking 
           </Link>
         </div>
       </div>

@@ -9,7 +9,6 @@ const BookPage = () => {
     <>
       <BookHero />
       <BookInquiry />
-      
       <InstagramFeed/>
       <Footer/>
     </>
