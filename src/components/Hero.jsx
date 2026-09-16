@@ -14,7 +14,8 @@ const navLinks = [
   { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
-  { label: "Book", to: "/#book" },
+  { label: "Contact", to: "/contact" },
+  { label: "Book", to: "/book" },
 ];
 
 const Hero = () => {

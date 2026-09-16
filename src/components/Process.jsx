@@ -32,21 +32,15 @@ const steps = [
 const Process = () => {
   return (
     <section className="relative w-full overflow-hidden bg-bone">
+      <h2 className="font-serif font-light leading-[1.05] text-gunmetal uppercase my-6 text-center md:my-12">
+        <span className="block text-4xl uppercase tracking-wide md:text-6xl">
+          Our Process
+        </span>
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Left column — ghost word + steps + statement card, stretched full height */}
-        <div className="relative flex flex-col px-6 py-20 md:px-12 md:py-28">
-          <span
-            className="pointer-events-none absolute left-12 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 -rotate-90 select-none whitespace-nowrap font-serif text-[7rem] font-light uppercase leading-none  md:block md:text-[9rem] text-olive"
-            aria-hidden="true"
-          >
-            Process
-          </span>
-
-          <h2 className="my-12 block md:hidden font-serif text-5xl font-extralight uppercase text-gunmetal md:text-5xl">
-            Our <span className="italic">Process</span>
-          </h2>
-
-          <div className="relative z-10 flex flex-col gap-8 md:gap-24 md:pl-20">
+        <div className="relative flex flex-col px-6 py-20 md:px-12 md:py-12">
+          <div className="relative z-10 flex flex-col gap-4 md:pl-20">
             {steps.map((step, i) => (
               <div key={step.number} className="flex flex-col gap-3">
                 <div className="flex items-baseline gap-3">
@@ -85,21 +79,10 @@ const Process = () => {
               Explore Services
             </a>
           </div>
-
-          {/* Statement card — pinned to bottom, fills the leftover space */}
-          <div className="md:block hidden relative z-10 max-w-md py-2 md:mt-40 md:ml-10 ">
-            <p className="font-serif text-xl italic leading-snug text-gunmetal md:text-2xl border-l-2 pl-6 border-gold">
-              "No two sets are the same — every appointment starts with actually
-              looking at your eyes, not just picking a size off a chart."
-            </p>
-            <p className="mt-4 font-sans text-xs uppercase tracking-[0.15em] text-gunmetal/50">
-              — Tash, Lashed by Tash
-            </p>
-          </div>
         </div>
 
         {/* Right column — video */}
-        <div className="h-full w-full md:h-auto">
+        <div className="h-[80%] w-full">
           <video
             src={processVideo}
             autoPlay

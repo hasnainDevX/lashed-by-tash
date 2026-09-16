@@ -55,14 +55,6 @@ const TIERS = [
   },
 ];
 
-const ENHANCEMENTS = [
-  { label: 'Lash Bath & Prep' },
-  { label: 'Style Consultation' },
-  { label: 'Aftercare Kit' },
-  { label: 'Touch-Up Scheduling' },
-  { label: 'Loyalty Perks' },
-];
-
 export default function Pricing() {
   return (
     <section className="bg-bone px-6 py-24 md:py-32">
@@ -70,7 +62,7 @@ export default function Pricing() {
         {/* Heading */}
         <div className="mb-16 flex items-center justify-center gap-6 text-center md:mb-20">
           <span className="h-px flex-1 bg-gunmetal/20" />
-          <h2 className="font-serif text-4xl font-light tracking-wide text-gunmetal md:text-6xl">
+          <h2 className="font-serif text-4xl font-light tracking-wide text-gunmetal md:text-6xl uppercase">
             Lash Menu
           </h2>
           <span className="h-px flex-1 bg-gunmetal/20" />
@@ -151,37 +143,18 @@ export default function Pricing() {
         </div>
 
         {/* Enhancements strip */}
-        <div className="mt-24 flex items-center justify-center gap-6 text-center md:mt-32">
-          <span className="h-px flex-1 bg-gunmetal/20" />
+        <div className="mt-24 flex flex-col items-center justify-center gap-6 text-center md:mt-32">
           <h3 className="font-serif text-2xl font-light tracking-wide text-gunmetal md:text-3xl">
-            Enhance Your Visit
+            Still Confuse?
           </h3>
-          <span className="h-px flex-1 bg-gunmetal/20" />
+          <p className="font-sans text-sm text-gunmetal/70 max-w-sm">
+            Fill out the contact form and I will get back to you with a personalized recommendation.
+          </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5 md:gap-6">
-          {ENHANCEMENTS.map((item) => (
-            <div
-              key={item.label}
-              className="group flex flex-col items-center gap-4 border border-gunmetal/10 bg-gunmetal/[0.02] px-4 py-8 transition-colors duration-300 hover:border-olive/40 hover:bg-olive/5"
-            >
-              <Heart
-                className="h-6 w-6 text-olive transition-transform duration-300 group-hover:scale-110"
-                strokeWidth={1.5}
-              />
-              <p
-                className="font-sans text-xs leading-snug tracking-wide"
-                style={{ color: '#141C19', opacity: 0.8 }}
-              >
-                {item.label}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16 flex justify-center">
+        <div className="mt-8 flex justify-center">
           <button className="border border-gunmetal px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-gunmetal transition-colors duration-300 hover:bg-gunmetal hover:text-bone">
-            Book Your Set
+            Contact
           </button>
         </div>
       </div>

@@ -3,7 +3,10 @@ import { InfiniteMovingCards, testimonialItems } from "./InfineMovingCards";
 // Two rows of the same review data, moving in opposite directions.
 const TestimonialsMarquee = () => {
   return (
-    <section className="bg-bone py-8 md:py-16">
+    <section className="bg-bone py-8 md:py-16" style={{
+          backgroundImage:
+            "repeating-linear-gradient(90deg, transparent 0, transparent calc(8.333% - 1px), rgba(92,107,46,0.055) calc(8.333% - 1px), rgba(92,107,46,0.055) 12.333%)",
+        }}>
       <div className="mx-auto mb-12 max-w-2xl px-6 text-center md:mb-16">
         <h2 className="font-serif font-light leading-[1.05] text-gunmetal uppercase">
           <span className="text-4xl md:text-6xl">Love </span>

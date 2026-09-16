@@ -2,6 +2,7 @@ import Pricing from '../components/Pricing';
 import ServicesHero from '../components/ServicesHero';
 import Footer from '../components/Footer';
 import Process from '../components/Process';
+import FAQ from '../components/FAQ';
 
 export default function ServicesPage() {
   return (
@@ -9,6 +10,7 @@ export default function ServicesPage() {
       <ServicesHero/>
       <Pricing />
       <Process />
+      <FAQ/>
       <Footer/>
     </main>
   );

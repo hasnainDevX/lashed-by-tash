@@ -1,6 +1,7 @@
 import AboutHero from '../components/AboutHero'
 import AboutIntro from '../components/AboutIntro'
 import Footer from '../components/Footer'
+import InstagramFeed from '../components/InstagramFeed'
 import Marquee from '../components/Marquee'
 import Statement from '../components/Statement'
 import TestimonialsMarquee from '../components/TestimonialsMarquee'
@@ -15,6 +16,7 @@ const Aboutpage = () => {
         <AboutIntro/>
         <Statement/>
         <TestimonialsMarquee/>
+        <InstagramFeed/>
         <Footer/>
     </div>
   )

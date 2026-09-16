@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import BookPage from './pages/BookPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/services" element={<ServicesPage />} />
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/book" element={<BookPage />} />
     </Routes>
   );
 }

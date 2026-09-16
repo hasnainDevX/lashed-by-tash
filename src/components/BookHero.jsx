@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import bgImage from "../assets/image1.jpeg";
+import bgImage from "../assets/image6.jpeg";
 import logo from "../assets/tlogo2.png";
 import CircularText from "./CircularText";
 import MobileNav from "./MobileNav";
@@ -12,9 +12,10 @@ const navLinks = [
   { label: "Book", to: "/book" },
 ];
 
-const ContactHero = () => {
+const BookHero = () => {
   return (
     <section className="relative flex min-h-screen w-full flex-col overflow-hidden bg-gunmetal">
+      {/* Background photo — same treatment as AboutHero / ServicesHero */}
       <img
         src={bgImage}
         alt=""
@@ -22,8 +23,9 @@ const ContactHero = () => {
       />
       <div className="absolute inset-0 bg-gunmetal/70" />
 
+      {/* Nav — identical to Hero.jsx / AboutHero.jsx / ServicesHero.jsx so it's consistent across routes */}
       <nav className="relative z-10 flex items-center justify-between px-6 py-6 md:px-12 md:py-8">
-        <Link to="/" aria-label="Lashed by Tash home">
+        <Link to="/">
           <img
             src={logo}
             alt="Lashed by Tash"
@@ -36,7 +38,7 @@ const ContactHero = () => {
             <Link
               key={link.label}
               to={link.to}
-              className="font-sans text-sm uppercase tracking-[0.2em] text-bone underline-offset-8 hover:underline"
+              className="font-sans text-sm uppercase tracking-[0.2em] text-bone hover:underline underline-offset-8"
             >
               {link.label}
             </Link>
@@ -46,11 +48,11 @@ const ContactHero = () => {
         <MobileNav />
       </nav>
 
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 text-center">
+      {/* Page title — same outlined-serif treatment as the homepage wordmark */}
+      <div className="relative z-2 flex flex-1 flex-col items-center justify-center px-4 text-center">
         <span className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-gold">
-          Get in Touch
+          Contact
         </span>
-
         <h1
           className="flex items-baseline gap-3 whitespace-nowrap font-serif font-light uppercase leading-none text-transparent"
           style={{
@@ -59,35 +61,31 @@ const ContactHero = () => {
           }}
         >
           <span>Let's</span>
-
           <span
             className="font-serif italic normal-case text-bone"
             style={{ WebkitTextStroke: "0px", fontSize: "0.6em" }}
           >
-            talk
+            get
           </span>
-
-          <span>Lashes</span>
+          <span>Lashed</span>
         </h1>
-
         <p className="mx-auto mt-4 max-w-md font-sans text-xs uppercase tracking-[0.2em] text-bone/80">
-          Booking questions, appointment requests, and everything you need to
-          know
+          Book an appointment or send a quick message below
         </p>
 
-        <div className="relative z-10 my-6 flex justify-center">
-          <a
-            href="#booking"
-            className="border border-white bg-olive px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-white hover:text-olive"
+        <div className="z-2 flex justify-center my-6">
+          <Link
+            to="#booking"
+            className="border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
           >
-            Send a Message
-          </a>
+            Book Now
+          </Link>
         </div>
       </div>
 
-      <CircularText className="absolute bottom-14 right-4 z-10 md:bottom-0 md:top-auto" />
+      <CircularText className="absolute bottom-14 right-4 z-2 md:bottom-0 md:top-auto" />
     </section>
   );
 };
 
-export default ContactHero;
+export default BookHero;

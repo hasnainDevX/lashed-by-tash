@@ -37,9 +37,9 @@ const ContactForm = () => {
           </h2>
           <div className="mx-auto mt-12 max-w-2xl">
             <p className="font-sans text-base leading-relaxed text-gunmetal/60 md:text-lg">
-              Appointments take about an hour — drag the slider to see exactly
-              what that hour gives back. No filters, no exaggeration, just what
-              400+ Steinbach clients already know.
+              Have a question about lash extensions, your appointment, or
+              finding the right set for you? Send a message and I’ll get back to
+              you as soon as I can.
             </p>
           </div>
         </div>
