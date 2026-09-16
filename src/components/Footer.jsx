@@ -158,7 +158,7 @@ const Footer = () => {
           }}
         />
 
-        <div className="flex md:flex-col gap-3 justify-between border-olive/15 pt-6 font-sans text-[10px] uppercase tracking-[0.12em] text-gunmetal/45 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex gap-3 justify-between border-olive/15 pt-6 font-sans text-[10px] uppercase tracking-[0.12em] text-gunmetal/45 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex-1">
             <p>Site Credit</p>
           </div>
