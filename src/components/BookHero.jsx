@@ -18,7 +18,7 @@ const BookHero = () => {
       {/* Background photo — same treatment as AboutHero / ServicesHero */}
       <img
         src={bgImage}
-        alt=""
+        alt="Booking Hero Image"
         className="absolute inset-0 h-full w-full object-cover"
       />
       <div className="absolute inset-0 bg-gunmetal/70" />
@@ -74,12 +74,12 @@ const BookHero = () => {
         </p>
 
         <div className="z-2 flex justify-center my-6">
-          <Link
-            to="/contact"
+          <a
+            href="#inquire"
             className="border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
           >
             Take me to Booking 
-          </Link>
+          </a>
         </div>
       </div>
 

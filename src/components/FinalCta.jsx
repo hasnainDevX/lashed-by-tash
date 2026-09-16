@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ctaImage from "../assets/image11.jpg";
 
 const FinalCta = () => {
@@ -22,12 +23,12 @@ const FinalCta = () => {
         </p>
         {/* CTA */}
         <div className="mx-auto flex max-w-5xl justify-center ">
-          <a
-            href="services"
+          <Link
+            to="/services"
             className="border border-bone/40 bg-olive px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:bg-white hover:text-olive"
           >
-            Book Your Appointment
-          </a>
+            Explore Services
+          </Link>
         </div>
       </div>
     </section>

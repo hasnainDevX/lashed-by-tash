@@ -3,6 +3,7 @@ import photo1 from "../assets/image2.jpeg";
 import photo2 from "../assets/image3.jpeg";
 import photo3 from "../assets/image4.jpeg";
 import CircularText from "./CircularText";
+import { Link } from "react-router-dom";
 
 const MeetTash = () => {
   return (
@@ -52,12 +53,12 @@ const MeetTash = () => {
       </div>
       {/* cta  */}
       <div className="flex justify-center md:bottom-24 my-10">
-        <a
-          href="#book"
+        <Link
+          to={"/about"}
           className=" border border-gunmetal px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
         >
-          Book Now
-        </a>
+          Learn More About me
+        </Link>
       </div>
       <CircularText
         className="md:block hidden absolute z-10 top-40 right-16 uppercase"

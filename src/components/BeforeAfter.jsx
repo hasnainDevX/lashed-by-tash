@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import beforeImg from "../assets/before.png";
 import afterImg from "../assets/after.png";
 import lashes from "../assets/lashes.png";
+import heart from "../assets/heartelem.png"
 
 const BeforeAfter = () => {
   const containerRef = useRef(null);
@@ -48,7 +49,7 @@ const BeforeAfter = () => {
       />
 
       <img
-        src={lashes}
+        src={heart}
         alt="Lash extensions"
         className="absolute z-10 right-0 md:right-12 md:top-24 -top-2 opacity-50 w-32 rotate-12"
       />

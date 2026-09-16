@@ -1,13 +1,19 @@
 import { ArrowUpRight, Inspect } from "lucide-react";
+import { Link } from "react-router-dom";
 import logo from "../assets/tlogo.png";
 import lashesIcon from "../assets/lashes.png";
 
+// These are homepage section ids (Home/About/Services/Pricing/FAQ live as
+// sections on "/"). Using "/#id" so the link works the same whether you're
+// already on the homepage or navigating in from /contact, /services, etc.
+// Requires the hash-aware ScrollToTop update (see below) to actually scroll
+// to the section instead of just landing at the top of "/".
 const links = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Lash Menu", href: "#pricing" },
-  { label: "FAQs", href: "#faq" },
+  { label: "Home", href: "/#home" },
+  { label: "About", href: "/#about" },
+  { label: "Services", href: "/#services" },
+  { label: "Lash Menu", href: "/#pricing" },
+  { label: "FAQs", href: "/#faq" },
 ];
 
 const Footer = () => {
@@ -32,9 +38,13 @@ const Footer = () => {
         <div className="grid gap-12 lg:grid-cols-[1fr_0.7fr_0.8fr_1.15fr] lg:gap-10">
           {/* Brand */}
           <div>
-            <a href="/home" aria-label="Lashed by Tash home" className="flex justify-center md:justify-start">
+            <Link
+              to="/"
+              aria-label="Lashed by Tash home"
+              className="flex justify-center md:justify-start"
+            >
               <img src={logo} alt="Lashed by Tash" className="h-auto w-64" />
-            </a>
+            </Link>
 
             <p className="mt-5 max-w-xs font-sans text-sm leading-6 text-gunmetal/60">
               Lash extensions in Steinbach, Manitoba.
@@ -60,12 +70,12 @@ const Footer = () => {
             <ul className="mt-5 space-y-3">
               {links.map((link) => (
                 <li key={link.label}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="font-sans text-sm text-gunmetal/65 transition-colors hover:text-olive"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -90,13 +100,13 @@ const Footer = () => {
                 accepted
               </p>
 
-              <a
-                href="#booking"
+              <Link
+                to="/booking"
                 className="inline-flex items-center gap-2 text-olive transition-colors hover:text-[#A88B3F]"
               >
                 Book an appointment
                 <ArrowUpRight className="h-3.5 w-3.5" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -148,12 +158,20 @@ const Footer = () => {
           }}
         />
 
-        <div className="flex flex-col gap-3  border-olive/15 pt-6 font-sans text-[10px] uppercase tracking-[0.12em] text-gunmetal/45 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Lashed by Tash</p>
-          <p>Certified Lash Artist · Steinbach, MB</p>
-          <a href="#policies" className="hover:text-olive">
-            Policies
-          </a>
+        <div className="flex md:flex-col gap-3 justify-between border-olive/15 pt-6 font-sans text-[10px] uppercase tracking-[0.12em] text-gunmetal/45 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex-1">
+            <p>Site Credit</p>
+          </div>
+
+           <div className="flex-2 flex justify-center">
+            <p>© {new Date().getFullYear()} Lashed by Tash</p>
+          </div>
+
+            <Link to="/#policies" className="hover:text-olive flex-1 flex justify-center">
+              Policies
+            </Link>
+          
+      
         </div>
       </div>
     </footer>

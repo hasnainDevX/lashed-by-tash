@@ -44,7 +44,7 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-0 border border-gunmetal/30 md:grid-cols-5">
+        <div id="contact-form" className="mt-12 grid gap-0 border border-gunmetal/30 md:grid-cols-5">
           {/* Form column */}
           <div className="bg-bone px-6 py-10 md:col-span-3 md:px-12 md:py-14">
             {submitted ? (

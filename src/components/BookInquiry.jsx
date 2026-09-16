@@ -42,7 +42,7 @@ const BookingInquiry = () => {
       <div className="absolute inset-0 bg-gunmetal/50" />
 
       {/* Form card */}
-      <div className="relative flex justify-center px-4 py-20 md:py-28">
+      <div id="inquire" className="relative flex justify-center px-4 py-20 md:py-28">
         <div className="w-full max-w-2xl bg-bone px-6 py-12 shadow-2xl md:px-16 md:py-16">
           <div className="text-center">
             <p className="font-serif text-lg italic tracking-wide text-olive md:text-xl">

@@ -1,13 +1,29 @@
 import { InfiniteMovingCards, testimonialItems } from "./InfineMovingCards";
+import review from "../assets/reviewelem.png";
+import lashes from "../assets/lashes.png"
 
 // Two rows of the same review data, moving in opposite directions.
 const TestimonialsMarquee = () => {
   return (
-    <section className="bg-bone py-8 md:py-16" style={{
-          backgroundImage:
-            "repeating-linear-gradient(90deg, transparent 0, transparent calc(8.333% - 1px), rgba(92,107,46,0.055) calc(8.333% - 1px), rgba(92,107,46,0.055) 12.333%)",
-        }}>
-      <div className="mx-auto mb-12 max-w-2xl px-6 text-center md:mb-16">
+    <section
+      className="bg-bone py-16 md:py-20 relative"
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(90deg, transparent 0, transparent calc(8.333% - 1px), rgba(92,107,46,0.055) calc(8.333% - 1px), rgba(92,107,46,0.055) 12.333%)",
+      }}
+    >
+      <div className="mx-auto mb-12 max-w-2xl px-6 text-center md:mb-16 ">
+        <img
+          src={review}
+          alt="Lash extensions"
+          className="absolute z-10 left-0 md:left-6 md:top-4 -top-2 md:w-32 w-20 opacity-50 -rotate-12"
+        />
+
+        <img
+          src={lashes}
+          alt="Lash extensions"
+          className="absolute z-10 right-0 md:right-6 md:top-4 -top-2 opacity-50 md:w-32 w-20 rotate-12"
+        />
         <h2 className="font-serif font-light leading-[1.05] text-gunmetal uppercase">
           <span className="text-4xl md:text-6xl">Love </span>
           <span className="text-4xl uppercase tracking-wide md:text-6xl">

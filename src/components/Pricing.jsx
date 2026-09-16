@@ -1,7 +1,10 @@
-import { Heart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import wetSetImg from '../assets/image6.jpeg';
 import hybridImg from '../assets/image7.jpeg';
 import volumeImg from '../assets/image8.jpeg';
+
+// (e.g. an external Calendly link, or an in-page anchor like "/#booking").
+const BOOKING_PATH = '/book';
 
 const TIERS = [
   {
@@ -19,6 +22,7 @@ const TIERS = [
       'Aftercare guide included',
     ],
     image: wetSetImg,
+    ctaLabel: 'Book the Wet Set',
   },
   {
     name: 'Hybrid Full Set',
@@ -36,6 +40,7 @@ const TIERS = [
     ],
     image: hybridImg,
     popular: true,
+    ctaLabel: 'Book the Hybrid Set',
   },
   {
     name: 'Volume Full Set',
@@ -52,6 +57,7 @@ const TIERS = [
       'Aftercare guide included',
     ],
     image: volumeImg,
+    ctaLabel: 'Book the Volume Set',
   },
 ];
 
@@ -134,9 +140,15 @@ export default function Pricing() {
                   ))}
                 </div>
 
-                <button className="mt-8 w-full bg-olive py-3 font-sans text-sm tracking-wide text-bone transition-colors hover:bg-olive/90">
-                  Book This Set
-                </button>
+                <Link
+                  to={BOOKING_PATH}
+                  state={{ selectedSet: tier.name }}
+                  className="mt-8"
+                >
+                  <button className="w-full bg-olive py-3 font-sans text-sm tracking-wide text-bone transition-colors hover:bg-olive/90">
+                    {tier.ctaLabel}
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
@@ -145,7 +157,7 @@ export default function Pricing() {
         {/* Enhancements strip */}
         <div className="mt-24 flex flex-col items-center justify-center gap-6 text-center md:mt-32">
           <h3 className="font-serif text-2xl font-light tracking-wide text-gunmetal md:text-3xl">
-            Still Confuse?
+            Still Unsure Which Set Is Right?
           </h3>
           <p className="font-sans text-sm text-gunmetal/70 max-w-sm">
             Fill out the contact form and I will get back to you with a personalized recommendation.
@@ -153,9 +165,11 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 flex justify-center">
-          <button className="border border-gunmetal px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-gunmetal transition-colors duration-300 hover:bg-gunmetal hover:text-bone">
-            Contact
-          </button>
+          <Link to="/contact">
+            <button className="border border-gunmetal px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-gunmetal transition-colors duration-300 hover:bg-gunmetal hover:text-bone">
+              Get My Recommendation
+            </button>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const faqs = [
   {
@@ -97,12 +98,12 @@ const FAQ = () => {
       </div>
       {/* cta  */}
       <div className="z-10 flex justify-center  my-12">
-        <a
-          href="#book"
+        <Link
+          to={"/book"}
           className=" border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
         >
           Book Now
-        </a>
+        </Link>
       </div>
     </section>
   );
