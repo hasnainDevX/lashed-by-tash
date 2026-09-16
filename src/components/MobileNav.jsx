@@ -8,7 +8,7 @@ const links = [
   { name: "Home", number: "01", to: "/" },
   { name: "About", number: "02", to: "/about" },
   { name: "Services", number: "03", to: "/services" },
-  { name: "Book", number: "04", to: "/book" },
+  { name: "Contact", number: "04", to: "/contact" },
 ];
 
 const MobileNav = () => {
@@ -86,11 +86,21 @@ const MobileNav = () => {
           transform: isOpen ? "translateX(0)" : "translateX(100%)",
         }}
       >
-        <div className="flex items-center justify-between px-6 py-6">
+        {/* Same line texture as the footer / before-after section */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(90deg, transparent 0, transparent calc(8.333% - 1px), rgba(92,107,46,0.055) calc(8.333% - 1px), rgba(92,107,46,0.055) 8.333%)",
+          }}
+        />
+
+        <div className="relative flex items-center justify-between px-6 py-6">
           <img src={logo} alt="Lashed by Tash" className="h-12 w-auto" />
         </div>
 
-        <nav className="flex flex-1 flex-col justify-center gap-1 px-8 py-6">
+        <nav className="relative flex flex-1 flex-col justify-center gap-1 px-8 py-6">
           {links.map((link, i) => (
             <Link
               key={link.name}
@@ -109,7 +119,7 @@ const MobileNav = () => {
           ))}
         </nav>
 
-        <div className="flex flex-col items-center gap-3 px-6 pb-10 pt-2">
+        <div className="relative flex flex-col items-center gap-3 px-6 pb-10 pt-2">
           <p className="text-center font-serif text-sm italic text-gunmetal/60">
             Perfect lashes, without the daily effort
           </p>

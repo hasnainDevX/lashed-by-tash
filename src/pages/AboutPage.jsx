@@ -1,9 +1,9 @@
 import AboutHero from '../components/AboutHero'
 import AboutIntro from '../components/AboutIntro'
 import Footer from '../components/Footer'
-import HeartStatement from '../components/HeartStatement'
 import Marquee from '../components/Marquee'
 import Statement from '../components/Statement'
+import TestimonialsMarquee from '../components/TestimonialsMarquee'
 import TrustStrip from '../components/TrustStrip'
 
 const Aboutpage = () => {
@@ -13,8 +13,8 @@ const Aboutpage = () => {
         <Marquee/>
         <TrustStrip/>
         <AboutIntro/>
-        <HeartStatement/>
         <Statement/>
+        <TestimonialsMarquee/>
         <Footer/>
     </div>
   )

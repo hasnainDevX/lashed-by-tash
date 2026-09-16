@@ -66,7 +66,7 @@ const Services = () => {
             }`}
           >
             {service.featured && (
-              <span className="absolute right-4 top-4 z-10 bg-gold px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.15em] text-gunmetal">
+              <span className="absolute right-4 top-4 z-3 bg-gold px-3 py-1 font-sans text-[10px] font-medium uppercase tracking-[0.15em] text-gunmetal">
                 Most Popular
               </span>
             )}

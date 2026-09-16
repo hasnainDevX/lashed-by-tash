@@ -17,7 +17,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-bone text-gunmetal">
+    <footer className="relative overflow-hidden bg-bone text-gunmetal border-t border-gunmetal/20">
       {/* Very subtle feminine line background */}
       <div
         aria-hidden="true"

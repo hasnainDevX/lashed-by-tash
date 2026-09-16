@@ -9,7 +9,7 @@ const FinalCta = () => {
     >
       <div className="absolute inset-0 bg-gunmetal/60" />
 
-      <div className="relative z-10 flex max-w-2xl flex-col items-center gap-6">
+      <div className="relative z-3 flex max-w-2xl flex-col items-center gap-6">
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-gold">
           Ready when you are
         </p>
