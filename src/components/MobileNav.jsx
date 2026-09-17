@@ -124,7 +124,7 @@ const MobileNav = () => {
             Perfect lashes, without the daily effort
           </p>
           <Link
-            to="/book"
+            to="/booking"
             onClick={() => setIsOpen(false)}
             className="border border-olive bg-olive px-8 py-3 font-sans text-sm uppercase tracking-[0.2em] text-bone transition-colors duration-300 hover:bg-bone hover:text-olive"
           >

@@ -71,7 +71,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="w-full bg-gunmetal px-6 py-20 md:px-12 md:py-28">
+    <section id="faq" className="w-full bg-gunmetal px-6 py-20 md:px-12 md:py-28">
       <div className="mx-auto max-w-2xl text-center">
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-gold">
           Good to know
@@ -99,10 +99,10 @@ const FAQ = () => {
       {/* cta  */}
       <div className="z-10 flex justify-center  my-12">
         <Link
-          to={"/book"}
+          to={"/contact"}
           className=" border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
         >
-          Book Now
+          Still Have a Question? Ask Away
         </Link>
       </div>
     </section>

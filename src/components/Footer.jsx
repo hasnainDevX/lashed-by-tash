@@ -3,11 +3,6 @@ import { Link } from "react-router-dom";
 import logo from "../assets/tlogo.png";
 import lashesIcon from "../assets/lashes.png";
 
-// These are homepage section ids (Home/About/Services/Pricing/FAQ live as
-// sections on "/"). Using "/#id" so the link works the same whether you're
-// already on the homepage or navigating in from /contact, /services, etc.
-// Requires the hash-aware ScrollToTop update (see below) to actually scroll
-// to the section instead of just landing at the top of "/".
 const links = [
   { label: "Home", href: "/#home" },
   { label: "About", href: "/#about" },
@@ -24,7 +19,6 @@ const Footer = () => {
 
   return (
     <footer className="relative overflow-hidden bg-bone text-gunmetal border-t border-gunmetal/20">
-      {/* Very subtle feminine line background */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"

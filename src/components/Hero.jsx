@@ -15,7 +15,7 @@ const navLinks = [
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Contact", to: "/contact" },
-  { label: "Book", to: "/book" },
+  { label: "Book", to: "/booking" },
 ];
 
 const Hero = () => {
@@ -116,25 +116,28 @@ const Hero = () => {
         {/* cta  */}
         <div className="z-2 flex justify-center my-4">
           <Link
-            to="/book"
+            to="/booking"
             className=" border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
           >
-            Book Now
+            Book My Appointment
           </Link>
         </div>
       </div>
 
-      {/* Side taglines — desktop */}
+      {/* Side taglines — desktop: both real proof points, one on each side */}
       <div className="relative z-2 hidden items-center justify-between px-12 pb-10 md:flex">
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-bone">
-          400+ clients trust her
+          Trusted by 400+ clients
+        </p>
+        <p className="font-sans text-xs uppercase tracking-[0.2em] text-bone">
+          Award-nominated certified lash artist
         </p>
       </div>
 
-      {/* Same taglines — mobile, stacked */}
+      {/* Same taglines — mobile, combined into one line */}
       <div className="relative z-2 flex justify-center pb-6 md:hidden">
         <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-bone">
-          Award-nominated lash artistry in Steinbach, MB
+          Award-nominated · Trusted by 400+ clients in Steinbach, MB
         </p>
       </div>
 
@@ -162,7 +165,7 @@ const Hero = () => {
         />
       </div>
 
-      <CircularText className="absolute bottom-14 right-4 z-2 md:bottom-0 md:top-auto" />
+      <CircularText className="absolute md:hidden block bottom-14 right-4 z-2 md:bottom-0 md:top-auto" />
     </section>
   );
 };

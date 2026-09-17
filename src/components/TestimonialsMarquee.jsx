@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { InfiniteMovingCards, testimonialItems } from "./InfineMovingCards";
 import review from "../assets/reviewelem.png";
 import lashes from "../assets/lashes.png"
@@ -6,6 +7,7 @@ import lashes from "../assets/lashes.png"
 const TestimonialsMarquee = () => {
   return (
     <section
+      id="testimonials"
       className="bg-bone py-16 md:py-20 relative"
       style={{
         backgroundImage:
@@ -47,6 +49,16 @@ const TestimonialsMarquee = () => {
           direction="right"
           speed="normal"
         />
+      </div>
+
+      {/* cta */}
+      <div className="flex justify-center mt-14 md:mt-16 relative z-10">
+        <Link
+          to="/booking"
+          className="border border-gunmetal px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
+        >
+          Take Me to Booking
+        </Link>
       </div>
     </section>
   );

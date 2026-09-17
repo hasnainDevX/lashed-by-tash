@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import wetSetImg from "../assets/image6.jpeg";
@@ -36,8 +37,17 @@ const Services = () => {
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
 
+  // NOTE: gsap/ScrollTrigger are imported and registered above but nothing
+  // currently animates cardRefs/sectionRef — this effect is a placeholder.
+  // Wire up your actual scroll-reveal here, or remove the gsap import and
+  // refs above if this section isn't animated anymore.
+  useEffect(() => {
+    // e.g. gsap.from(cardRefs.current, { ... scrollTrigger: { trigger: sectionRef.current } })
+  }, []);
+
   return (
     <section
+      id="services"
       ref={sectionRef}
       className="w-full bg-gunmetal px-6 py-16 md:px-12 md:py-28"
     >
@@ -98,12 +108,12 @@ const Services = () => {
 
       {/* CTA */}
       <div className="mx-auto mt-10 flex max-w-5xl justify-center md:mt-14">
-        <a
-          href="services"
+        <Link
+          to="/services"
           className="border border-bone/40 bg-olive px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:bg-white hover:text-olive"
         >
-          View full service menu
-        </a>
+          See What Each Set Includes
+        </Link>
       </div>
     </section>
   );

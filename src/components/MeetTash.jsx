@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const MeetTash = () => {
   return (
-    <section className="w-full bg-bone px-6 py-6 md:px-12 md:py-12 relative ">
+    <section id="about" className="w-full bg-bone px-6 py-6 md:px-12 md:py-12 relative ">
       {/* Stacked headline */}
       <div className="mx-auto max-w-5xl mt-12">
         <h2 className="font-serif font-light leading-[1.05] text-gunmetal uppercase">
@@ -57,7 +57,7 @@ const MeetTash = () => {
           to={"/about"}
           className=" border border-gunmetal px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
         >
-          Learn More About me
+          Take Me to Her Story
         </Link>
       </div>
       <CircularText

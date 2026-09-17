@@ -9,7 +9,7 @@ const navLinks = [
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Contact", to: "/contact" },
-  { label: "Book", to: "/book" },
+  { label: "Book", to: "/booking" },
 ];
 
 const ServicesHero = () => {
@@ -70,15 +70,15 @@ const ServicesHero = () => {
           <span>Menu</span>
         </h1>
         <p className="mx-auto mt-4 max-w-md font-sans text-xs uppercase tracking-[0.2em] text-bone/80">
-          Classic, hybrid, and volume sets — built around your natural lash line
+          Classic, hybrid, and volume — each set mapped to your natural lash line and how much upkeep you want
         </p>
 
         <div className="z-2 flex justify-center my-6">
           <Link
-            to="/book"
+            to="/booking"
             className="border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
           >
-            Book Now
+            Reserve My Appointment
           </Link>
         </div>
       </div>

@@ -9,7 +9,7 @@ const navLinks = [
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Contact", to: "/contact" },
-  { label: "Book", to: "/book" },
+  { label: "Book", to: "/booking" },
 ];
 
 const AboutHero = () => {
@@ -73,7 +73,7 @@ const AboutHero = () => {
           <span>Artist</span>
         </h1>
         <p className="mx-auto mt-4 max-w-md font-sans text-xs uppercase tracking-[0.2em] text-bone/80">
-          Certified, award-nominated, and trusted by 400+ clients
+          Certified. Award-nominated. Trusted by 400+ clients in Steinbach, MB.
         </p>
 
         <div className="z-2 flex justify-center my-6">
@@ -81,7 +81,7 @@ const AboutHero = () => {
             to="/services"
             className="border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
           >
-            View Services
+            See What I Offer
           </Link>
         </div>
       </div>

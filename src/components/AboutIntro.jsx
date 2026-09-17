@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import photoMain from "../assets/image2.jpeg";
@@ -26,7 +27,7 @@ const DotCluster = ({ className }) => (
 
 const stats = [
   { value: 400, suffix: "+", label: "Clients trust her" },
-  { value: 7, suffix: "+", label: "Years perfecting the craft" },
+  { value: 6, suffix: "+", label: "Years perfecting the craft" },
 ];
 
 const AboutIntro = () => {
@@ -72,17 +73,18 @@ const AboutIntro = () => {
 
           <div className="mt-7 max-w-md space-y-5 font-sans text-sm leading-relaxed text-gunmetal/70 md:text-base">
             <p>
-              Lash artistry found me almost by accident — what started as a
-              curiosity turned into the thing I now can't imagine my days
-              without. Every set I do is a small act of care, built around the
-              person sitting in my chair, not a one-size-fits-all template.
+              Lash artistry found me almost by accident — what started as
+              curiosity became the thing I can't imagine my days without.
+              Every set starts with your eye shape, your lifestyle, and how
+              much upkeep you actually want, mapped by hand rather than
+              picked off a shelf.
             </p>
             <p>
-              I'm an award-nominated certified lash artist, and over the years
-              I've been trusted by more than 400 clients across Steinbach and
-              the surrounding area. My goal with every appointment is simple:
-              perfect lashes, without the daily effort — so you can wake up
-              already feeling like yourself, just a little more polished.
+              I'm an award-nominated certified lash artist, trusted by more
+              than 400 clients across Steinbach and the surrounding area. The
+              goal is always the same: perfect lashes, without the daily
+              effort, so you wake up already looking like yourself — just a
+              little more polished.
             </p>
           </div>
 
@@ -100,6 +102,15 @@ const AboutIntro = () => {
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-10">
+            <Link
+              to="/booking"
+              className="inline-block border border-gunmetal bg-olive px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-white hover:text-olive"
+            >
+              Book Your Appointment
+            </Link>
           </div>
         </div>
 
