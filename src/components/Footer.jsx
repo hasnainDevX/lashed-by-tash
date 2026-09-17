@@ -4,11 +4,12 @@ import logo from "../assets/tlogo.png";
 import lashesIcon from "../assets/lashes.png";
 
 const links = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
-  { label: "Services", href: "/#services" },
-  { label: "Lash Menu", href: "/#pricing" },
-  { label: "FAQs", href: "/#faq" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Lash Menu", href: "/services" },
+  { label: "Contact", href: "/contact" },
+  { label: "Booking", href: "/book" },
 ];
 
 const Footer = () => {
@@ -161,7 +162,7 @@ const Footer = () => {
             <p>© {new Date().getFullYear()} Lashed by Tash</p>
           </div>
 
-            <Link to="/#policies" className="hover:text-olive flex-1 flex justify-center">
+            <Link to="/policies" className="hover:text-olive flex-1 flex justify-center">
               Policies
             </Link>
           

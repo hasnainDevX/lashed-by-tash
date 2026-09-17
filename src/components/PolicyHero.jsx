@@ -1,20 +1,8 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import bgImage from "../assets/image4.jpeg";
 import logo from "../assets/tlogo2.png";
 import CircularText from "./CircularText";
 import MobileNav from "./MobileNav";
-
-import heroImg1 from "../assets/image7.jpeg";
-import heroImg2 from "../assets/image8.jpeg";
-import heroImg3 from "../assets/image9.jpeg";
-
-const heroImages = [
-  { src: heroImg1, position: "center" },
-  { src: heroImg2, position: "center" },
-  { src: heroImg3, position: "center" },
-];
-const SLIDE_DURATION_MS = 2500;
-const TRANSITION_MS = 1500;
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -24,40 +12,27 @@ const navLinks = [
   { label: "Book", to: "/booking" },
 ];
 
-const ServicesHero = () => {
-  const [activeImage, setActiveImage] = useState(0);
+const img = {
+  src: bgImage,
+  position: "center 45%",
+};
 
-  useEffect(() => {
-    // cycles the bg photos forever, doesnt stop unless the component unmounts
-    const interval = setInterval(() => {
-      setActiveImage((i) => (i + 1) % heroImages.length);
-    }, SLIDE_DURATION_MS);
-    return () => clearInterval(interval);
-  }, []);
-
+const PolicyHero = () => {
   return (
     <section className="relative flex min-h-screen w-full flex-col overflow-hidden bg-gunmetal">
-      <div className="absolute inset-0 h-full w-full">
-        {heroImages.map((img, i) => (
-          <img
-            key={img.src}
-            src={img.src}
-            alt=""
-            className={`absolute inset-0 h-full w-full object-cover ease-in-out ${
-              i === activeImage ? "opacity-100" : "opacity-0"
-            }`}
-            style={{
-              objectPosition: img.position,
-              transitionProperty: "opacity",
-              transitionDuration: `${TRANSITION_MS}ms`,
-            }}
-          />
-        ))}
-      </div>
+      <img
+        src={bgImage}
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover"
+        style={{
+          objectPosition: img.position,
+        }}
+      />
+
       <div className="absolute inset-0 bg-gunmetal/70" />
 
       <nav className="relative z-10 flex items-center justify-between px-6 py-6 md:px-12 md:py-8">
-        <Link to="/">
+        <Link to="/" aria-label="Lashed by Tash home">
           <img
             src={logo}
             alt="Lashed by Tash"
@@ -70,7 +45,7 @@ const ServicesHero = () => {
             <Link
               key={link.label}
               to={link.to}
-              className="font-sans text-sm uppercase tracking-[0.2em] text-bone hover:underline underline-offset-8"
+              className="font-sans text-sm uppercase tracking-[0.2em] text-bone underline-offset-8 hover:underline"
             >
               {link.label}
             </Link>
@@ -82,8 +57,9 @@ const ServicesHero = () => {
 
       <div className="relative z-2 flex flex-1 flex-col items-center justify-center px-4 text-center">
         <span className="mb-4 font-sans text-xs uppercase tracking-[0.3em] text-gold">
-          Services
+          Please Read
         </span>
+
         <h1
           className="flex items-baseline gap-3 whitespace-nowrap font-serif font-light uppercase leading-none text-transparent"
           style={{
@@ -91,26 +67,30 @@ const ServicesHero = () => {
             fontSize: "clamp(2rem, 9vw, 5.5rem)",
           }}
         >
-          <span>The</span>
+          <span>Our</span>
+
           <span
             className="font-serif italic normal-case text-bone"
             style={{ WebkitTextStroke: "0px", fontSize: "0.6em" }}
           >
-            lash
+            terms
           </span>
-          <span>Menu</span>
+
+          <span>& Policy</span>
         </h1>
+
         <p className="mx-auto mt-4 max-w-md font-sans text-xs uppercase tracking-[0.2em] text-bone/80">
-          Classic, wet set, and YY — each set mapped to your natural lash line and how much upkeep you want
+          Important information about our services, appointments, and use of
+          this website
         </p>
 
-        <div className="z-2 flex justify-center my-6">
-          <Link
-            to="/booking"
-            className="border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
+        <div className="relative z-2 my-6 flex justify-center">
+          <a
+            href="#terms"
+            className="border border-white bg-olive px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 hover:bg-white hover:text-olive"
           >
-            Reserve My Appointment
-          </Link>
+            Read Terms
+          </a>
         </div>
       </div>
 
@@ -119,4 +99,4 @@ const ServicesHero = () => {
   );
 };
 
-export default ServicesHero;
+export default PolicyHero;

@@ -7,5 +7,5 @@ Ecru Gold  #A88B3F   — CTA hover, accents (use sparingly)
 White      #FAF9F5   — light sections, max contrast
 
 FONTS
-Headline: Instrument Serif (Google Fonts) — use italics for emphasis words
+Headline: Instrument Serif (Google Fonts)
 Body/UI:  General Sans (Fontshare)

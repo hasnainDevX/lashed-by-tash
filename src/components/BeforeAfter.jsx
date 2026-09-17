@@ -1,4 +1,5 @@
 import { useCallback, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import beforeImg from "../assets/before.png";
 import afterImg from "../assets/after.png";
@@ -7,7 +8,7 @@ import heart from "../assets/heartelem.png"
 
 const BeforeAfter = () => {
   const containerRef = useRef(null);
-  const [position, setPosition] = useState(50); // percentage from left
+  const [position, setPosition] = useState(50);
   const isDragging = useRef(false);
 
   const updatePosition = useCallback((clientX) => {
@@ -79,7 +80,6 @@ const BeforeAfter = () => {
         onTouchEnd={stopDragging}
         className="relative z-10 mx-auto mt-12 aspect-[4/5] w-[80%] md:w-full max-w-3xl select-none overflow-hidden md:mt-16 md:aspect-[16/9] "
       >
-        {/* After image — base layer, always full size */}
         <img
           src={afterImg}
           alt="After lash set"
@@ -87,7 +87,6 @@ const BeforeAfter = () => {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        {/* Before image — same full size, clipped via clip-path so no width hacks needed */}
         <img
           src={beforeImg}
           alt="Before lash set"
@@ -96,7 +95,6 @@ const BeforeAfter = () => {
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         />
 
-        {/* Labels */}
         <span className="absolute bottom-4 left-4 font-sans text-xs uppercase tracking-[0.2em] text-bone/90">
           Before
         </span>
@@ -104,13 +102,11 @@ const BeforeAfter = () => {
           After
         </span>
 
-        {/* Divider line */}
         <div
           className="pointer-events-none absolute inset-y-0 w-0.5 bg-bone"
           style={{ left: `${position}%`, transform: "translateX(-50%)" }}
         />
 
-        {/* Drag handle */}
         <div
           onMouseDown={handlePointerDown}
           onTouchStart={handlePointerDown}
@@ -120,6 +116,15 @@ const BeforeAfter = () => {
           <ChevronLeft className="h-4 w-4 text-gunmetal" strokeWidth={2} />
           <ChevronRight className="h-4 w-4 text-gunmetal" strokeWidth={2} />
         </div>
+      </div>
+
+      <div className="relative z-10 flex justify-center mt-12 md:mt-16">
+        <Link
+          to="/booking"
+          className="border border-gunmetal px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
+        >
+          Book Your Appointment
+        </Link>
       </div>
     </section>
   );

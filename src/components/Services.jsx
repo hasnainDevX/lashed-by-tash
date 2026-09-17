@@ -2,13 +2,20 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import wetSetImg from "../assets/image6.jpeg";
-import hybridImg from "../assets/image7.jpeg";
-import volumeImg from "../assets/image8.jpeg";
+import classicImg from "../assets/image6.jpeg";
+import wetSetImg from "../assets/image7.jpeg";
+import yyImg from "../assets/image8.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const services = [
+  {
+    name: "Classic",
+    price: "$90",
+    image: classicImg,
+    description:
+      "A timeless, natural set — one extension per natural lash for subtle definition that still looks like you, just polished.",
+  },
   {
     name: "Wet Set",
     price: "$100",
@@ -17,19 +24,11 @@ const services = [
       "A soft, low-maintenance set built for a natural everyday finish — barely-there weight, full commitment to the effortless look.",
   },
   {
-    name: "Hybrid Full Set",
-    price: "$110",
-    image: hybridImg,
+    name: "YY Full Set",
+    price: "$100",
+    image: yyImg,
     description:
-      "A textured mix of classic and volume fans for added depth and dimension, without going full volume.",
-    featured: true,
-  },
-  {
-    name: "Volume Full Set",
-    price: "$115",
-    image: volumeImg,
-    description:
-      "Handmade volume fans built lash-by-lash for maximum density and a bold, dramatic finish that still feels weightless.",
+      "A softer alternative to volume — Y-shaped fans that add fullness without density, for a look that's fuller but still effortless.",
   },
 ];
 
@@ -37,12 +36,8 @@ const Services = () => {
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
 
-  // NOTE: gsap/ScrollTrigger are imported and registered above but nothing
-  // currently animates cardRefs/sectionRef — this effect is a placeholder.
-  // Wire up your actual scroll-reveal here, or remove the gsap import and
-  // refs above if this section isn't animated anymore.
   useEffect(() => {
-    // e.g. gsap.from(cardRefs.current, { ... scrollTrigger: { trigger: sectionRef.current } })
+    // gsap scroll reveal not wired up yet, need to add trigger for the cards later
   }, []);
 
   return (
@@ -51,7 +46,6 @@ const Services = () => {
       ref={sectionRef}
       className="w-full bg-gunmetal px-6 py-16 md:px-12 md:py-28"
     >
-      {/* Header */}
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="font-serif text-4xl font-light uppercase text-bone md:text-5xl">
           Our lash services
@@ -63,7 +57,6 @@ const Services = () => {
         <div className="mx-auto mt-6 h-px w-12 bg-gold" />
       </div>
 
-      {/* Cards */}
       <div className="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-6 md:mt-14 md:grid-cols-3 md:gap-8">
         {services.map((service, i) => (
           <div
@@ -106,7 +99,6 @@ const Services = () => {
         ))}
       </div>
 
-      {/* CTA */}
       <div className="mx-auto mt-10 flex max-w-5xl justify-center md:mt-14">
         <Link
           to="/services"

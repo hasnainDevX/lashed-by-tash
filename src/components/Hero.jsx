@@ -5,10 +5,22 @@ import { Link } from "react-router-dom";
 import side3 from "../assets/image7.jpeg";
 import side1 from "../assets/image9.jpeg";
 import logo from "../assets/tlogo2.png";
-import heroVideo from "../assets/work2.mp4";
 import CircularText from "./CircularText";
 import MobileNav from "./MobileNav";
+
+import heroImg1 from "../assets/image13.jpg";
+import heroImg2 from "../assets/image3.jpeg";
+import heroImg3 from "../assets/image4.jpeg";
+
 gsap.registerPlugin(ScrollTrigger);
+
+const heroImages = [
+  { src: heroImg1, position: "center 35%" },
+  { src: heroImg2, position: "center 30%" },
+  { src: heroImg3, position: "center 30%" },
+];
+const SLIDE_DURATION_MS = 5000;
+const TRANSITION_MS = 1500;
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -20,6 +32,7 @@ const navLinks = [
 
 const Hero = () => {
   const [offset, setOffset] = useState(0);
+  const [activeImage, setActiveImage] = useState(0);
   const sectionRef = useRef(null);
   const leftRef = useRef(null);
   const rightRef = useRef(null);
@@ -51,20 +64,37 @@ const Hero = () => {
     return () => ctx.revert();
   }, []);
 
+  // Background image carousel — crossfades and loops indefinitely.
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage((i) => (i + 1) % heroImages.length);
+    }, SLIDE_DURATION_MS);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       ref={sectionRef}
       className="relative flex min-h-screen w-full flex-col overflow-hidden bg-gunmetal"
     >
-      {/* Background video */}
-      <video
-        src={heroVideo}
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      />
+      {/* Background image carousel */}
+      <div className="absolute inset-0 h-full w-full">
+        {heroImages.map((img, i) => (
+          <img
+            key={img.src}
+            src={img.src}
+            alt=""
+            className={`absolute inset-0 h-full w-full object-cover ease-in-out ${
+              i === activeImage ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              objectPosition: img.position,
+              transitionProperty: "opacity",
+              transitionDuration: `${TRANSITION_MS}ms`,
+            }}
+          />
+        ))}
+      </div>
       <div className="absolute inset-0 bg-gunmetal/40" />
 
       {/* Nav */}

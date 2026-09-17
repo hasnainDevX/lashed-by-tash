@@ -2,7 +2,6 @@ import { cn } from "../utils/cn";
 import React, { useEffect, useState } from "react";
 import { Star } from "lucide-react";
 
-// Real client review text.
 export const testimonialItems = [
   {
     quote:
@@ -44,11 +43,19 @@ export const InfiniteMovingCards = ({
 }) => {
   const containerRef = React.useRef(null);
   const scrollerRef = React.useRef(null);
+  const [start, setStart] = useState(false);
 
   useEffect(() => {
+    // clones the cards for the infinite loop, then sets direction/speed
+    // (speed doubles up on mobile so it doesn't feel dead on small screens)
     addAnimation();
+
+    const mql = window.matchMedia("(max-width: 767px)");
+    const handleChange = () => getSpeed();
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
   }, []);
-  const [start, setStart] = useState(false);
+
   function addAnimation() {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
@@ -65,6 +72,7 @@ export const InfiniteMovingCards = ({
       setStart(true);
     }
   }
+
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === "left") {
@@ -74,17 +82,17 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "100s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "180s");
-      }
-    }
+    if (!containerRef.current) return;
+
+    const baseDuration = speed === "fast" ? 80 : speed === "normal" ? 100 : 180;
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const duration = isMobile ? baseDuration / 2 : baseDuration;
+
+    containerRef.current.style.setProperty("--animation-duration", `${duration}s`);
   };
+
   return (
     <div
       ref={containerRef}
@@ -104,7 +112,6 @@ export const InfiniteMovingCards = ({
             key={idx}
             className="group relative w-[340px] max-w-full shrink-0 overflow-hidden border border-gunmetal/30 bg-white px-8 py-8 transition-colors duration-300 hover:border-olive/40 md:w-[420px]"
           >
-            {/* Subtle line texture, same technique as the footer */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute inset-0 opacity-60"

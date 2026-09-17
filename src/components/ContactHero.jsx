@@ -12,6 +12,11 @@ const navLinks = [
   { label: "Book", to: "/booking" },
 ];
 
+const img = {
+  src: bgImage,
+  position: "center 45%",
+};
+
 const ContactHero = () => {
   return (
     <section className="relative flex min-h-screen w-full flex-col overflow-hidden bg-gunmetal">
@@ -19,6 +24,9 @@ const ContactHero = () => {
         src={bgImage}
         alt=""
         className="absolute inset-0 h-full w-full object-cover"
+        style={{
+          objectPosition: img.position,
+        }}
       />
       <div className="absolute inset-0 bg-gunmetal/70" />
 
