@@ -1,12 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import classicImg from "../assets/image6.jpeg";
 import wetSetImg from "../assets/image7.jpeg";
 import yyImg from "../assets/image8.jpeg";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -33,17 +29,9 @@ const services = [
 ];
 
 const Services = () => {
-  const sectionRef = useRef(null);
-  const cardRefs = useRef([]);
-
-  useEffect(() => {
-    // gsap scroll reveal not wired up yet, need to add trigger for the cards later
-  }, []);
-
   return (
     <section
       id="services"
-      ref={sectionRef}
       className="w-full bg-gunmetal px-6 py-16 md:px-12 md:py-28"
     >
       <div className="mx-auto max-w-2xl text-center">
@@ -61,7 +49,6 @@ const Services = () => {
         {services.map((service, i) => (
           <div
             key={service.name}
-            ref={(el) => (cardRefs.current[i] = el)}
             className={`group relative flex flex-col overflow-hidden rounded-lg border p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl ${
               service.featured
                 ? "border-gold bg-olive/10"

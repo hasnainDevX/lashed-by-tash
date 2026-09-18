@@ -1,100 +1,88 @@
-import { Link } from "react-router-dom";
-import wetSetImg from "../assets/image6.jpeg";
-import hybridImg from "../assets/image7.jpeg";
-import volumeImg from "../assets/image8.jpeg";
-import lashes from "../assets/lashes.png"
-import heart from "../assets/heartelem.png"
+import { Link } from 'react-router-dom';
+import classicImg from '../assets/image6.jpeg';
+import wetSetImg from '../assets/image7.jpeg';
+import yyImg from '../assets/image8.jpeg';
 
-// (e.g. an external Calendly link, or an in-page anchor like "/#booking").
-const BOOKING_PATH = "/booking";
+const BOOKING_PATH = '/booking';
 
 const TIERS = [
   {
-    name: "Wet Set",
+    name: 'Classic Full Set',
+    price: 90,
+    fills: [
+      { label: '2 Week Fill', price: 55 },
+      { label: '3 Week Fill', price: 65 },
+    ],
+    description:
+      'A timeless, natural set — one extension per natural lash for subtle definition that still looks like you, just polished.',
+    includes: [
+      'Full lash consultation',
+      'Custom length & curl mapping',
+      'Aftercare guide included',
+    ],
+    image: classicImg,
+    ctaLabel: 'Book the Classic Set',
+  },
+  {
+    name: 'Wet Set',
     price: 100,
     fills: [
-      { label: "2 Week Fill", price: 65 },
-      { label: "3 Week Fill", price: 75 },
+      { label: '2 Week Fill', price: 65 },
+      { label: '3 Week Fill', price: 75 },
     ],
     description:
-      "A soft, low-maintenance set built for a natural everyday finish — barely-there weight, full commitment to the effortless look.",
+      'A soft, low-maintenance set built for a natural everyday finish — barely-there weight, full commitment to the effortless look.',
     includes: [
-      "Full lash consultation",
-      "Custom length & curl mapping",
-      "Aftercare guide included",
+      'Full lash consultation',
+      'Custom length & curl mapping',
+      'Aftercare guide included',
     ],
     image: wetSetImg,
-    ctaLabel: "Book the Wet Set",
-  },
-  {
-    name: "Hybrid Full Set",
-    price: 110,
-    fills: [
-      { label: "2 Week Fill", price: 75 },
-      { label: "3 Week Fill", price: 85 },
-    ],
-    description:
-      "A textured mix of classic and volume fans for added depth and dimension — fuller than a wet set, without going full volume.",
-    includes: [
-      "Full lash consultation",
-      "Custom length & curl mapping",
-      "Aftercare guide included",
-    ],
-    image: hybridImg,
     popular: true,
-    ctaLabel: "Book the Hybrid Set",
+    ctaLabel: 'Book the Wet Set',
   },
   {
-    name: "Volume Full Set",
-    price: 115,
+    name: 'YY Full Set',
+    price: 100,
     fills: [
-      { label: "2 Week Fill", price: 80 },
-      { label: "3 Week Fill", price: 90 },
+      { label: '2 Week Fill', price: 65 },
+      { label: '3 Week Fill', price: 75 },
     ],
     description:
-      "Handmade volume fans built lash-by-lash for maximum density and a bold, dramatic finish that still feels weightless.",
+      'A softer alternative to volume — Y-shaped fans that add fullness without density, for a look that\u2019s fuller but still effortless.',
     includes: [
-      "Full lash consultation",
-      "Custom length & curl mapping",
-      "Aftercare guide included",
+      'Full lash consultation',
+      'Custom length & curl mapping',
+      'Aftercare guide included',
     ],
-    image: volumeImg,
-    ctaLabel: "Book the Volume Set",
+    image: yyImg,
+    ctaLabel: 'Book the YY Set',
   },
 ];
 
 export default function Pricing() {
   return (
-    <section className="bg-bone px-6 py-24 md:py-32 relative">
+    <section className="bg-bone px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <img
-          src={lashes}
-          alt="Lash extensions"
-          className="absolute z-10 left-0 md:left-6 md:top-4 -top-2 opacity-50 md:w-32 w-20 -rotate-12"
-        />
-        <img
-          src={heart}
-          alt="Lash extensions"
-          className="absolute z-10 right-0 md:right-6 md:top-4 -top-2 opacity-50 md:w-32 w-20 rotate-12"
-        />
-        {/* Heading */}
-        <div className="mb-6 flex items-center justify-center gap-6 text-center md:mb-8">
+        <div className="mb-16 flex items-center justify-center gap-6 text-center md:mb-20">
+          <span className="h-px flex-1 bg-gunmetal/20" />
           <h2 className="font-serif text-4xl font-light tracking-wide text-gunmetal md:text-6xl uppercase">
             Lash Menu
           </h2>
+          <span className="h-px flex-1 bg-gunmetal/20" />
         </div>
-        <p className="mx-auto mb-10 max-w-xl text-center font-sans text-base text-gunmetal/70 md:mb-16">
-          Every set is applied lash-by-lash and tailored to your natural lash
-          line. Fills require 40% or more retention to qualify.
+
+        <p className="mx-auto mb-16 max-w-xl text-center font-sans text-base text-gunmetal/70 md:mb-24">
+          Every set is applied lash-by-lash and tailored to your natural
+          lash line. Fills require 40% or more retention to qualify.
         </p>
 
-        {/* Tier cards */}
         <div className="grid gap-10 md:grid-cols-3 md:gap-8">
           {TIERS.map((tier) => (
             <div
               key={tier.name}
               className={`relative flex flex-col border ${
-                tier.popular ? "border-olive" : "border-gunmetal/15"
+                tier.popular ? 'border-olive' : 'border-gunmetal/15'
               } bg-bone`}
             >
               {tier.popular && (
@@ -163,14 +151,12 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Enhancements strip */}
         <div className="mt-24 flex flex-col items-center justify-center gap-6 text-center md:mt-32">
           <h3 className="font-serif text-2xl font-light tracking-wide text-gunmetal md:text-3xl">
             Still Unsure Which Set Is Right?
           </h3>
           <p className="font-sans text-sm text-gunmetal/70 max-w-sm">
-            Fill out the contact form and I will get back to you with a
-            personalized recommendation.
+            Fill out the contact form and I will get back to you with a personalized recommendation.
           </p>
         </div>
 

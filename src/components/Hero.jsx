@@ -19,7 +19,7 @@ const heroImages = [
   { src: heroImg2, position: "center 30%" },
   { src: heroImg3, position: "center 30%" },
 ];
-const SLIDE_DURATION_MS = 5000;
+const SLIDE_DURATION_MS = 3000;
 const TRANSITION_MS = 1500;
 
 const navLinks = [
@@ -36,6 +36,7 @@ const Hero = () => {
   const sectionRef = useRef(null);
   const leftRef = useRef(null);
   const rightRef = useRef(null);
+  const centerRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -64,12 +65,27 @@ const Hero = () => {
     return () => ctx.revert();
   }, []);
 
-  // Background image carousel — crossfades and loops indefinitely.
   useEffect(() => {
+    // background image carousel, loops forever, doesnt stop
     const interval = setInterval(() => {
       setActiveImage((i) => (i + 1) % heroImages.length);
     }, SLIDE_DURATION_MS);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    // fades the wordmark, tagline and cta in one after another on load, kept subtle on purpose
+    const ctx = gsap.context(() => {
+      gsap.from(centerRef.current.children, {
+        opacity: 0,
+        y: 24,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.15,
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -77,7 +93,6 @@ const Hero = () => {
       ref={sectionRef}
       className="relative flex min-h-screen w-full flex-col overflow-hidden bg-gunmetal"
     >
-      {/* Background image carousel */}
       <div className="absolute inset-0 h-full w-full">
         {heroImages.map((img, i) => (
           <img
@@ -97,7 +112,6 @@ const Hero = () => {
       </div>
       <div className="absolute inset-0 bg-gunmetal/40" />
 
-      {/* Nav */}
       <nav className="relative z-10 flex items-center justify-between px-6 py-6 md:px-12 md:py-8">
         <Link to="/">
           <img
@@ -122,8 +136,10 @@ const Hero = () => {
         <MobileNav />
       </nav>
 
-      {/* Wordmark — now flex-1, vertically centered in whatever space remains between nav and bottom content */}
-      <div className="relative z-2 flex flex-1 flex-col items-center justify-center px-4 text-center">
+      <div
+        ref={centerRef}
+        className="relative z-2 flex flex-1 flex-col items-center justify-center px-4 text-center"
+      >
         <h1
           className="flex items-baseline gap-3 whitespace-nowrap font-serif font-light uppercase leading-none text-transparent"
           style={{
@@ -143,7 +159,6 @@ const Hero = () => {
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-bone my-3">
           Perfect lashes, without the daily effort
         </p>
-        {/* cta  */}
         <div className="z-2 flex justify-center my-4">
           <Link
             to="/booking"
@@ -154,7 +169,6 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Side taglines — desktop: both real proof points, one on each side */}
       <div className="relative z-2 hidden items-center justify-between px-12 pb-10 md:flex">
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-bone">
           Trusted by 400+ clients
@@ -164,14 +178,12 @@ const Hero = () => {
         </p>
       </div>
 
-      {/* Same taglines — mobile, combined into one line */}
       <div className="relative z-2 flex justify-center pb-6 md:hidden">
         <p className="font-sans text-[10px] uppercase tracking-[0.15em] text-bone">
           Award-nominated · Trusted by 400+ clients in Steinbach, MB
         </p>
       </div>
 
-      {/* Left photo pair — GSAP-driven drift*/}
       <div
         ref={leftRef}
         className="absolute left-2 top-[50%] z-2 hidden -translate-y-1/2 flex-col gap-4 md:left-10 md:flex"
@@ -183,7 +195,6 @@ const Hero = () => {
         />
       </div>
 
-      {/* Right photo pair — GSAP-driven drift, opposite direction */}
       <div
         ref={rightRef}
         className="absolute right-2 top-[50%] z-2 hidden -translate-y-1/2 flex-col gap-4 md:right-10 md:flex"

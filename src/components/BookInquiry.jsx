@@ -2,9 +2,9 @@ import { useState } from "react";
 import heroVideo from "../assets/work3.mp4";
 
 const serviceOptions = [
+  "Classic",
   "Wet Set",
-  "Hybrid Full Set",
-  "Volume Full Set",
+  "YY Full Set",
   "Fill / Touch-Up",
   "Not Sure Yet",
 ];
@@ -23,14 +23,11 @@ const BookingInquiry = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Wire this up to your actual booking/email backend before launch —
-    // this currently only sets local state, nothing is sent anywhere yet.
     setSubmitted(true);
   };
 
   return (
     <section className="relative min-h-screen w-full overflow-hidden">
-      {/* Background video */}
       <video
         src={heroVideo}
         autoPlay
@@ -41,7 +38,6 @@ const BookingInquiry = () => {
       />
       <div className="absolute inset-0 bg-gunmetal/50" />
 
-      {/* Form card */}
       <div id="inquire" className="relative flex justify-center px-4 py-20 md:py-28">
         <div className="w-full max-w-2xl bg-bone px-6 py-12 shadow-2xl md:px-16 md:py-16">
           <div className="text-center">
@@ -84,7 +80,6 @@ const BookingInquiry = () => {
                 <FieldInput label="Phone Number" type="tel" required id="phone" />
               </div>
 
-              {/* Service checkboxes */}
               <div>
                 <p className="font-sans text-sm text-gunmetal">
                   Service Interested In <span className="text-olive">*</span>
@@ -137,7 +132,7 @@ const BookingInquiry = () => {
 
               <p className="text-center font-sans text-xs leading-relaxed text-gunmetal/40">
                 Cash and e-transfer accepted. No-shows and late cancellations
-                are charged 50% before rescheduling.
+                are charged a $30 fee before rescheduling.
               </p>
             </form>
           )}

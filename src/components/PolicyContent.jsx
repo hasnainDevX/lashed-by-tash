@@ -105,7 +105,7 @@ const websitePolicySections = [
 ];
 
 const Section = ({ heading, body }) => (
-  <div className="mb-10">
+  <div className="mb-10 " id="terms">
     <h3 className="font-serif text-2xl font-light tracking-wide text-gunmetal md:text-3xl">
       {heading}
     </h3>

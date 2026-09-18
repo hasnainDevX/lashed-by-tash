@@ -14,7 +14,7 @@ function App() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/booking" element={<BookPage />} />
-      <Route path="/policy" element={<Policy />} />
+      <Route path="/policies" element={<Policy />} />
     </Routes>
   );
 }

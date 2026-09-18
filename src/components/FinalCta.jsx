@@ -1,16 +1,44 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ctaImage from "../assets/image11.jpg";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const FinalCta = () => {
+  const sectionRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    // fades eyebrow, heading, paragraph and cta up one after another when scrolled into view, only plays once
+    const ctx = gsap.context(() => {
+      gsap.from(contentRef.current.children, {
+        opacity: 0,
+        y: 24,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 60%",
+          once: true,
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       className="relative flex min-h-[70vh] w-full items-center justify-center overflow-hidden bg-fixed bg-cover bg-center px-6 text-center"
       style={{ backgroundImage: `url(${ctaImage})` }}
     >
       <div className="absolute inset-0 bg-gunmetal/60" />
 
-      <div className="relative z-3 flex max-w-2xl flex-col items-center gap-6">
+      <div ref={contentRef} className="relative z-3 flex max-w-2xl flex-col items-center gap-6">
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-gold">
           Ready when you are
         </p>
@@ -21,7 +49,6 @@ const FinalCta = () => {
           Book online in under a minute, or send a message first if you'd rather
           chat about your first set.
         </p>
-        {/* CTA */}
         <div className="mx-auto flex max-w-5xl justify-center ">
           <Link
             to="/services"

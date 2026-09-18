@@ -40,7 +40,7 @@ const Process = () => {
       <div className="grid grid-cols-1 md:grid-cols-2">
         {/* Left column — ghost word + steps + statement card, stretched full height */}
         <div className="relative flex flex-col px-6 py-20 md:px-12 md:py-12">
-          <div className="relative z-10 flex flex-col gap-4 md:pl-20">
+          <div className="relative z-2 flex flex-col gap-4 md:pl-20">
             {steps.map((step, i) => (
               <div key={step.number} className="flex flex-col gap-3">
                 <div className="flex items-baseline gap-3">

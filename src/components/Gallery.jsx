@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import work1 from "../assets/image10.jpeg";
 import work2 from "../assets/image11.jpg";
 import work3 from "../assets/image5.jpeg";
@@ -6,6 +8,8 @@ import work4 from "../assets/image7.jpeg";
 import work5 from "../assets/image8.jpeg";
 import work6 from "../assets/image9.jpeg";
 import work7 from "../assets/image6.jpeg";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const gallery = [
   { image: work1, span: false },
@@ -18,10 +22,36 @@ const gallery = [
 ];
 
 const Gallery = () => {
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    // fades heading, paragraph and cta up together when scrolled into view, only plays once
+    const ctx = gsap.context(() => {
+      gsap.from([headerRef.current, ctaRef.current], {
+        opacity: 0,
+        y: 24,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.15,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 60%",
+          once: true,
+        },
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="w-full px-6 py-12 md:px-12 md:py-24 relative">
-      {/* Header */}
-      <div className="mx-auto max-w-5xl">
+    <section
+      ref={sectionRef}
+      className="w-full px-6 py-12 md:px-12 md:py-24 relative"
+    >
+      <div ref={headerRef} className="mx-auto max-w-5xl">
         <h2 className="font-serif text-5xl font-extralight uppercase text-gunmetal md:text-5xl">
           A glimpse <span className="italic">of the work</span>
         </h2>
@@ -30,7 +60,6 @@ const Gallery = () => {
         </p>
       </div>
 
-      {/* Gallery grid */}
       <div className="mx-auto mt-12 grid max-w-5xl auto-rows-[180px] grid-cols-2 gap-4 md:grid-cols-3 md:auto-rows-[220px] md:gap-6">
         {gallery.map((item, i) => (
           <div
@@ -48,8 +77,7 @@ const Gallery = () => {
         ))}
       </div>
 
-      {/* CTA */}
-      <div className="mx-auto mt-12 flex max-w-5xl justify-center">
+      <div ref={ctaRef} className="mx-auto mt-12 flex max-w-5xl justify-center">
         <a
           href="https://instagram.com/lashedby._.tash"
           target="_blank"

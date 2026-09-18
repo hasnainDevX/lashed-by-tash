@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const faqs = [
   {
@@ -25,7 +29,7 @@ const faqs = [
   {
     question: "What if I need to cancel or I'm late?",
     answer:
-      "Life happens — just give as much notice as you can. No-shows and late cancellations are charged 50% of the service before rebooking, which helps keep appointment slots fair for everyone.",
+      "Life happens — just give at least 24 hours notice if you can. No-shows and late cancellations (including arriving more than 15 minutes late) are charged a $30 fee, which helps keep appointment slots fair for everyone.",
   },
   {
     question: "How do I pay?",
@@ -52,7 +56,6 @@ const FAQItem = ({ item, isOpen, onClick }) => {
         </span>
       </button>
 
-      {/* Grid-rows trick: animates to content's natural height without measuring it in JS */}
       <div
         className="grid overflow-hidden transition-[grid-template-rows] duration-500 ease-out"
         style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
@@ -70,9 +73,61 @@ const FAQItem = ({ item, isOpen, onClick }) => {
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const listRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  useEffect(() => {
+    // header fades up, then each question fades in one by one, then cta, only plays once
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 60%",
+          once: true,
+        },
+      });
+
+      tl.from(headerRef.current, {
+        opacity: 0,
+        y: 24,
+        duration: 1,
+        ease: "power2.out",
+      })
+        .from(
+          listRef.current.children,
+          {
+            opacity: 0,
+            y: 16,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.1,
+          },
+          "-=0.5"
+        )
+        .from(
+          ctaRef.current,
+          {
+            opacity: 0,
+            y: 24,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.3"
+        );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section id="faq" className="w-full bg-gunmetal px-6 py-20 md:px-12 md:py-28">
-      <div className="mx-auto max-w-2xl text-center">
+    <section
+      id="faq"
+      ref={sectionRef}
+      className="w-full bg-gunmetal px-6 py-20 md:px-12 md:py-28"
+    >
+      <div ref={headerRef} className="mx-auto max-w-2xl text-center">
         <p className="font-sans text-xs uppercase tracking-[0.2em] text-gold">
           Good to know
         </p>
@@ -86,7 +141,7 @@ const FAQ = () => {
         <div className="mx-auto mt-6 h-px w-12 bg-gold" />
       </div>
 
-      <div className="mx-auto mt-14 max-w-3xl">
+      <div ref={listRef} className="mx-auto mt-14 max-w-3xl">
         {faqs.map((item, i) => (
           <FAQItem
             key={item.question}
@@ -96,11 +151,11 @@ const FAQ = () => {
           />
         ))}
       </div>
-      {/* cta  */}
-      <div className="z-10 flex justify-center  my-12">
+
+      <div ref={ctaRef} className="z-2 flex justify-center my-12">
         <Link
           to={"/contact"}
-          className=" border border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
+          className=" border text-center border-white px-6 py-3 font-sans text-sm uppercase tracking-[0.2em] text-white transition-colors duration-300 bg-olive hover:bg-white hover:text-olive"
         >
           Still Have a Question? Ask Away
         </Link>

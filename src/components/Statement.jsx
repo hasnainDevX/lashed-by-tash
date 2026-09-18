@@ -26,11 +26,11 @@ const Statement = () => {
         <img
           src={logo}
           alt="Lash extensions"
-          className="absolute z-10 right-0 md:right-6 md:top-4 -top-2 opacity-50 md:w-72 w-32 rotate-12"
+          className="absolute z-2 right-0 md:right-6 md:top-4 -top-2 opacity-50 md:w-72 w-32 rotate-12"
         />
 
         {/* Portrait */}
-        <div className="relative z-10 mx-auto w-full max-w-xs flex-shrink-0 md:mx-0">
+        <div className="relative z-2 mx-auto w-full max-w-xs flex-shrink-0 md:mx-0">
           <img
             src={portrait}
             alt="Tash, lash artist"
@@ -39,7 +39,7 @@ const Statement = () => {
         </div>
 
         {/* Text content */}
-        <div className="relative z-10 flex flex-col gap-8">
+        <div className="relative z-2 flex flex-col gap-8">
           <div className="font-serif text-2xl font-light italic leading-snug text-gunmetal md:text-3xl">
             No templates. No guesswork.
             <br />

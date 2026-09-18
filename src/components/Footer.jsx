@@ -1,7 +1,28 @@
-import { ArrowUpRight, Inspect } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import logo from "../assets/tlogo.png";
 import lashesIcon from "../assets/lashes.png";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const InstagramIcon = ({ className }) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.5" cy="6.5" r="0.75" fill="currentColor" stroke="none" />
+  </svg>
+);
 
 const links = [
   { label: "Home", href: "/" },
@@ -9,17 +30,40 @@ const links = [
   { label: "Services", href: "/services" },
   { label: "Lash Menu", href: "/services" },
   { label: "Contact", href: "/contact" },
-  { label: "Booking", href: "/book" },
+  { label: "Booking", href: "/booking" },
 ];
 
 const Footer = () => {
+  const footerRef = useRef(null);
+  const navListRef = useRef(null);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     // Connect Mailchimp / Formspree / Kit here later.
   };
 
+  useEffect(() => {
+    // nav links fade up one by one when the footer scrolls into view, only plays once
+    const ctx = gsap.context(() => {
+      gsap.from(navListRef.current.children, {
+        opacity: 0,
+        y: 12,
+        duration: 0.6,
+        ease: "power2.out",
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: footerRef.current,
+          start: "top 90%",
+          once: true,
+        },
+      });
+    }, footerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <footer className="relative overflow-hidden bg-bone text-gunmetal border-t border-gunmetal/20">
+    <footer ref={footerRef} className="relative overflow-hidden bg-bone text-gunmetal border-t border-gunmetal/20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -31,7 +75,6 @@ const Footer = () => {
 
       <div className="relative mx-auto max-w-7xl px-6 py-14 sm:px-10 md:px-12 md:py-20">
         <div className="grid gap-12 lg:grid-cols-[1fr_0.7fr_0.8fr_1.15fr] lg:gap-10">
-          {/* Brand */}
           <div>
             <Link
               to="/"
@@ -51,18 +94,17 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 font-sans text-sm text-gunmetal/70 transition-colors hover:text-olive"
             >
-              <Inspect className="h-4 w-4 stroke-[1.5]" />
+              <InstagramIcon className="h-4 w-4" />
               @lashedby._.tash
             </a>
           </div>
 
-          {/* Links */}
           <nav>
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.14em] text-[#A88B3F]">
               Explore
             </p>
 
-            <ul className="mt-5 space-y-3">
+            <ul ref={navListRef} className="mt-5 space-y-3">
               {links.map((link) => (
                 <li key={link.label}>
                   <Link
@@ -76,7 +118,6 @@ const Footer = () => {
             </ul>
           </nav>
 
-          {/* Studio */}
           <div>
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.14em] text-[#A88B3F]">
               Studio Info
@@ -105,7 +146,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Newsletter */}
           <div className="bg-olive/[0.08] p-6 sm:p-7">
             <p className="font-sans text-[11px] font-medium uppercase tracking-[0.14em] text-[#A88B3F]">
               Newsletter
@@ -134,7 +174,7 @@ const Footer = () => {
 
               <button
                 type="submit"
-                className="flex h-12 w-full items-center justify-center bg-olive font-sans text-[11px] font-medium uppercase tracking-[0.14em] text-bone transition-colors hover:bg-gunmetal"
+                className="flex h-12 w-full items-center justify-center bg-olive font-sans text-[11px] font-medium uppercase tracking-[0.14em] text-bone transition-colors hover:bg-olive/90"
               >
                 Subscribe
               </button>

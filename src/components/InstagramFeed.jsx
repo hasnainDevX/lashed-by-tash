@@ -1,5 +1,3 @@
-// Live Instagram feed via Elfsight — auto-syncs with @lashedby._.tash, no manual image swapping needed.
-// The platform.js loader script lives in index.html (loaded once, site-wide) — see that file.
 const InstagramFeed = () => {
   return (
     <section className=" px-6 py-20 md:px-12 md:py-28">
