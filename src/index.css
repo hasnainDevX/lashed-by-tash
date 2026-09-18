@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html, body {
+  overflow-x: hidden;
+}
+
 @theme {
   --color-gunmetal: #141C19;
   --color-olive: #5C6B2E;
